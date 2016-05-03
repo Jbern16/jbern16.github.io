@@ -1,0 +1,23 @@
+Elm.Css = Elm.Css || {};
+Elm.Css.Padding = Elm.Css.Padding || {};
+Elm.Css.Padding.make = function (_elm) {
+   "use strict";
+   _elm.Css = _elm.Css || {};
+   _elm.Css.Padding = _elm.Css.Padding || {};
+   if (_elm.Css.Padding.values) return _elm.Css.Padding.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Css = Elm.Css.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var _op = {};
+   var top = F2(function (t,styles) {    return A3($Css.style,"padding-top",$Css.px(t),styles);});
+   var right = F2(function (r,styles) {    return A3($Css.style,"padding-right",$Css.px(r),styles);});
+   var left = F2(function (l,styles) {    return A3($Css.style,"padding-left",$Css.px(l),styles);});
+   var bottom = F2(function (b,styles) {    return A3($Css.style,"padding-bottom",$Css.px(b),styles);});
+   var all = F5(function (t,r,b,l,styles) {    return A2(left,l,A2(bottom,b,A2(right,r,A2(top,t,styles))));});
+   return _elm.Css.Padding.values = {_op: _op,bottom: bottom,left: left,right: right,top: top,all: all};
+};

@@ -1,0 +1,27 @@
+Elm.Css = Elm.Css || {};
+Elm.Css.Border = Elm.Css.Border || {};
+Elm.Css.Border.Top = Elm.Css.Border.Top || {};
+Elm.Css.Border.Top.make = function (_elm) {
+   "use strict";
+   _elm.Css = _elm.Css || {};
+   _elm.Css.Border = _elm.Css.Border || {};
+   _elm.Css.Border.Top = _elm.Css.Border.Top || {};
+   if (_elm.Css.Border.Top.values) return _elm.Css.Border.Top.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Color = Elm.Color.make(_elm),
+   $Css = Elm.Css.make(_elm),
+   $Css$Border$Style = Elm.Css.Border.Style.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var _op = {};
+   var leftRadius = F2(function (l,styles) {    return A3($Css.style,"border-top-left-radius",$Css.px(l),styles);});
+   var rightRadius = F2(function (r,styles) {    return A3($Css.style,"border-top-right-radius",$Css.px(r),styles);});
+   var width = F2(function (w,styles) {    return A3($Css.style,"border-top-width",$Css.px(w),styles);});
+   var style = F2(function (s,styles) {    return A3($Css.style,"border-top-style",$Css$Border$Style.string(s),styles);});
+   var color = F2(function (c,styles) {    return A3($Css.style,"border-top-color",$Css.colorString(c),styles);});
+   return _elm.Css.Border.Top.values = {_op: _op,color: color,style: style,width: width,rightRadius: rightRadius,leftRadius: leftRadius};
+};

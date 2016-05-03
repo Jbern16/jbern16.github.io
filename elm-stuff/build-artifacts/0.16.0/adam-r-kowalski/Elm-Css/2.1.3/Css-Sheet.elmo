@@ -1,0 +1,30 @@
+Elm.Css = Elm.Css || {};
+Elm.Css.Sheet = Elm.Css.Sheet || {};
+Elm.Css.Sheet.make = function (_elm) {
+   "use strict";
+   _elm.Css = _elm.Css || {};
+   _elm.Css.Sheet = _elm.Css.Sheet || {};
+   if (_elm.Css.Sheet.values) return _elm.Css.Sheet.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Css = Elm.Css.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $String = Elm.String.make(_elm);
+   var _op = {};
+   var pairAsString = function (_p0) {
+      var _p1 = _p0;
+      return A2($Basics._op["++"],"  ",A2($Basics._op["++"],_p1._0,A2($Basics._op["++"],": ",A2($Basics._op["++"],_p1._1,";\n"))));
+   };
+   var ruleAsString = function (rule) {
+      var representation = $String.concat(A2($List.map,function (s) {    return pairAsString(s);},rule.styles));
+      return A2($Basics._op["++"],rule.name,A2($Basics._op["++"]," {\n",A2($Basics._op["++"],representation,"\n }\n")));
+   };
+   var sheetAsString = function (sheet) {    return $String.concat(A2($List.map,ruleAsString,sheet));};
+   var createRule = F2(function (name,styles) {    return {name: name,styles: styles};});
+   var Rule = F2(function (a,b) {    return {name: a,styles: b};});
+   return _elm.Css.Sheet.values = {_op: _op,createRule: createRule,sheetAsString: sheetAsString,ruleAsString: ruleAsString};
+};

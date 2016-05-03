@@ -1,0 +1,52 @@
+Elm.Css = Elm.Css || {};
+Elm.Css.Font = Elm.Css.Font || {};
+Elm.Css.Font.make = function (_elm) {
+   "use strict";
+   _elm.Css = _elm.Css || {};
+   _elm.Css.Font = _elm.Css.Font || {};
+   if (_elm.Css.Font.values) return _elm.Css.Font.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Css = Elm.Css.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var _op = {};
+   var weight = F2(function (w,styles) {
+      var ub = _U.cmp(w,9) > 0 ? 9 : w;
+      var lb = _U.cmp(ub,1) < 0 ? 1 : ub;
+      return A3($Css.style,"font-weight",$Basics.toString(lb * 100),styles);
+   });
+   var size = F2(function (length,styles) {    return A3($Css.style,"font-size",$Css.px(length),styles);});
+   var family = F2(function (f,styles) {    return A3($Css.style,"font-family",f,styles);});
+   var variantString = function (v) {    var _p0 = v;if (_p0.ctor === "NormalVariant") {    return "normal";} else {    return "small-caps";}};
+   var variant = F2(function (v,styles) {    return A3($Css.style,"font-variant",variantString(v),styles);});
+   var styleString = function (style) {
+      var _p1 = style;
+      switch (_p1.ctor)
+      {case "NormalStyle": return "normal";
+         case "Italic": return "italic";
+         default: return "oblique";}
+   };
+   var style = F2(function (s,styles) {    return A3($Css.style,"font-style",styleString(s),styles);});
+   var SmallCaps = {ctor: "SmallCaps"};
+   var NormalVariant = {ctor: "NormalVariant"};
+   var Oblique = {ctor: "Oblique"};
+   var Italic = {ctor: "Italic"};
+   var NormalStyle = {ctor: "NormalStyle"};
+   return _elm.Css.Font.values = {_op: _op
+                                 ,NormalStyle: NormalStyle
+                                 ,Italic: Italic
+                                 ,Oblique: Oblique
+                                 ,NormalVariant: NormalVariant
+                                 ,SmallCaps: SmallCaps
+                                 ,styleString: styleString
+                                 ,variantString: variantString
+                                 ,family: family
+                                 ,size: size
+                                 ,style: style
+                                 ,variant: variant
+                                 ,weight: weight};
+};

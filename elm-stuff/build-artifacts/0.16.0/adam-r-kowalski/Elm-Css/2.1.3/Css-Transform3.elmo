@@ -1,0 +1,52 @@
+Elm.Css = Elm.Css || {};
+Elm.Css.Transform3 = Elm.Css.Transform3 || {};
+Elm.Css.Transform3.make = function (_elm) {
+   "use strict";
+   _elm.Css = _elm.Css || {};
+   _elm.Css.Transform3 = _elm.Css.Transform3 || {};
+   if (_elm.Css.Transform3.values) return _elm.Css.Transform3.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Css = Elm.Css.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $String = Elm.String.make(_elm),
+   $Vendor = Elm.Vendor.make(_elm);
+   var _op = {};
+   var scale3 = F3(function (x,y,z) {
+      return A2($Basics._op["++"],
+      "scale3d(",
+      A2($Basics._op["++"],
+      $Basics.toString(x),
+      A2($Basics._op["++"],", ",A2($Basics._op["++"],$Basics.toString(y),A2($Basics._op["++"],", ",A2($Basics._op["++"],$Basics.toString(z),")"))))));
+   });
+   var rotate3 = F4(function (x,y,z,angle) {
+      return A2($Basics._op["++"],
+      "rotate3d(",
+      A2($Basics._op["++"],
+      $Basics.toString(x),
+      A2($Basics._op["++"],
+      ", ",
+      A2($Basics._op["++"],
+      $Basics.toString(y),
+      A2($Basics._op["++"],", ",A2($Basics._op["++"],$Basics.toString(z),A2($Basics._op["++"],", ",A2($Basics._op["++"],$Basics.toString(angle),"deg)"))))))));
+   });
+   var translate3 = F3(function (x,y,z) {
+      return A2($Basics._op["++"],
+      "translate3d(",
+      A2($Basics._op["++"],
+      $Basics.toString(x),
+      A2($Basics._op["++"],"px, ",A2($Basics._op["++"],$Basics.toString(y),A2($Basics._op["++"],"px, ",A2($Basics._op["++"],$Basics.toString(z),"px)"))))));
+   });
+   var perspective = function (p) {    return A2($Basics._op["++"],"perspective(",A2($Basics._op["++"],$Basics.toString(p),")"));};
+   var transform3 = F2(function (transforms,styles) {
+      var name = "transform";
+      var prefix = $Vendor.prefix;
+      var string = A2($String.join," ",transforms);
+      return _U.eq(prefix,$Vendor.Webkit) ? A3($Css.style,A2($Basics._op["++"],"-webkit-",name),string,styles) : A3($Css.style,name,string,styles);
+   });
+   return _elm.Css.Transform3.values = {_op: _op,transform3: transform3,perspective: perspective,translate3: translate3,rotate3: rotate3,scale3: scale3};
+};

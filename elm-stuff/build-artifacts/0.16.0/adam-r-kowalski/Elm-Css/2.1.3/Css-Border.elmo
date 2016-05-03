@@ -1,0 +1,38 @@
+Elm.Css = Elm.Css || {};
+Elm.Css.Border = Elm.Css.Border || {};
+Elm.Css.Border.make = function (_elm) {
+   "use strict";
+   _elm.Css = _elm.Css || {};
+   _elm.Css.Border = _elm.Css.Border || {};
+   if (_elm.Css.Border.values) return _elm.Css.Border.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Color = Elm.Color.make(_elm),
+   $Css = Elm.Css.make(_elm),
+   $Css$Border$Bottom = Elm.Css.Border.Bottom.make(_elm),
+   $Css$Border$Left = Elm.Css.Border.Left.make(_elm),
+   $Css$Border$Right = Elm.Css.Border.Right.make(_elm),
+   $Css$Border$Style = Elm.Css.Border.Style.make(_elm),
+   $Css$Border$Top = Elm.Css.Border.Top.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var _op = {};
+   var radius = F5(function (tl,tr,br,bl,styles) {
+      return A2($Css$Border$Bottom.rightRadius,
+      br,
+      A2($Css$Border$Bottom.leftRadius,bl,A2($Css$Border$Top.rightRadius,tr,A2($Css$Border$Top.leftRadius,tl,styles))));
+   });
+   var width = F5(function (t,r,b,l,styles) {
+      return A2($Css$Border$Top.width,t,A2($Css$Border$Right.width,r,A2($Css$Border$Left.width,l,A2($Css$Border$Bottom.width,b,styles))));
+   });
+   var style = F2(function (s,styles) {
+      return A2($Css$Border$Top.style,s,A2($Css$Border$Right.style,s,A2($Css$Border$Left.style,s,A2($Css$Border$Bottom.style,s,styles))));
+   });
+   var color = F2(function (c,styles) {
+      return A2($Css$Border$Top.color,c,A2($Css$Border$Right.color,c,A2($Css$Border$Left.color,c,A2($Css$Border$Bottom.color,c,styles))));
+   });
+   return _elm.Css.Border.values = {_op: _op,color: color,style: style,width: width,radius: radius};
+};

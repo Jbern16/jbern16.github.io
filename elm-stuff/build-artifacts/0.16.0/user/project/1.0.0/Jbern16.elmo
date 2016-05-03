@@ -1,0 +1,73 @@
+Elm.Jbern16 = Elm.Jbern16 || {};
+Elm.Jbern16.make = function (_elm) {
+   "use strict";
+   _elm.Jbern16 = _elm.Jbern16 || {};
+   if (_elm.Jbern16.values) return _elm.Jbern16.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Array = Elm.Array.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $Html$Attributes = Elm.Html.Attributes.make(_elm),
+   $Html$Events = Elm.Html.Events.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $StartApp$Simple = Elm.StartApp.Simple.make(_elm);
+   var _op = {};
+   var textContainer = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "paddingTop",_1: "20%"}
+                                                      ,{ctor: "_Tuple2",_0: "paddingBottom",_1: "20%"}
+                                                      ,{ctor: "_Tuple2",_0: "text-align",_1: "center"}
+                                                      ,{ctor: "_Tuple2",_0: "font-family",_1: "Montserrat, sans-serif"}]));
+   var backgroundStyle = function (backgroundColor) {
+      return $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "backgroundColor",_1: backgroundColor},{ctor: "_Tuple2",_0: "height",_1: "100vh"}]));
+   };
+   var backgroundColors = $Array.fromList(_U.list(["#99D5C9","#007EA7","#5E8C61"]));
+   var NextClick = {ctor: "NextClick"};
+   var view = F2(function (address,model) {
+      var backgroundColor = A2($Maybe.withDefault,"",A2($Array.get,model.nextID,backgroundColors));
+      return A2($Html.div,
+      _U.list([backgroundStyle(backgroundColor)]),
+      _U.list([A2($Html.div,
+      _U.list([A2($Html$Events.onClick,address,NextClick)]),
+      _U.list([A2($Html.div,
+      _U.list([textContainer]),
+      _U.list([A2($Html.div,_U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "42px"}]))]),_U.list([$Html.text(model.headline)]))
+              ,A2($Html.div,_U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "24px"}]))]),_U.list([$Html.text(model.content)]))
+              ,A2($Html.div,
+              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "28px"}]))]),
+              _U.list([$Html.text(" ° ° ° ")]))]))]))]));
+   });
+   var NoOp = {ctor: "NoOp"};
+   var changeID = function (model) {    return _U.eq(model.nextID,2) ? 0 : model.nextID + 1;};
+   var contents = $Array.fromList(_U.list(["Web Developer","List Projects","Github Blog Twitter LinkedIn Email"]));
+   var headlines = $Array.fromList(_U.list(["Jonathan Bernesser","Work","Contact"]));
+   var update = F2(function (action,model) {
+      var _p0 = action;
+      if (_p0.ctor === "NoOp") {
+            return model;
+         } else {
+            var content = A2($Maybe.withDefault,"",A2($Array.get,model.nextID,contents));
+            var headline = A2($Maybe.withDefault,"",A2($Array.get,model.nextID,headlines));
+            return _U.update(model,{headline: headline,content: content,nextID: changeID(model)});
+         }
+   });
+   var init = {headline: "Jonathan Bernesser",content: "Web Developer",nextID: 1};
+   var main = $StartApp$Simple.start({model: init,update: update,view: view});
+   var Model = F3(function (a,b,c) {    return {headline: a,content: b,nextID: c};});
+   return _elm.Jbern16.values = {_op: _op
+                                ,Model: Model
+                                ,init: init
+                                ,headlines: headlines
+                                ,contents: contents
+                                ,changeID: changeID
+                                ,NoOp: NoOp
+                                ,NextClick: NextClick
+                                ,update: update
+                                ,backgroundColors: backgroundColors
+                                ,backgroundStyle: backgroundStyle
+                                ,textContainer: textContainer
+                                ,view: view
+                                ,main: main};
+};

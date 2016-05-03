@@ -1,0 +1,25 @@
+Elm.Css = Elm.Css || {};
+Elm.Css.Border = Elm.Css.Border || {};
+Elm.Css.Border.Left = Elm.Css.Border.Left || {};
+Elm.Css.Border.Left.make = function (_elm) {
+   "use strict";
+   _elm.Css = _elm.Css || {};
+   _elm.Css.Border = _elm.Css.Border || {};
+   _elm.Css.Border.Left = _elm.Css.Border.Left || {};
+   if (_elm.Css.Border.Left.values) return _elm.Css.Border.Left.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Color = Elm.Color.make(_elm),
+   $Css = Elm.Css.make(_elm),
+   $Css$Border$Style = Elm.Css.Border.Style.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var _op = {};
+   var width = F2(function (w,styles) {    return A3($Css.style,"border-left-width",$Css.px(w),styles);});
+   var style = F2(function (s,styles) {    return A3($Css.style,"border-left-style",$Css$Border$Style.string(s),styles);});
+   var color = F2(function (c,styles) {    return A3($Css.style,"border-left-color",$Css.colorString(c),styles);});
+   return _elm.Css.Border.Left.values = {_op: _op,color: color,style: style,width: width};
+};

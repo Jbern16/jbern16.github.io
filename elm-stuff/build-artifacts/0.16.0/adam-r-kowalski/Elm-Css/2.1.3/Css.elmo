@@ -1,0 +1,33 @@
+Elm.Css = Elm.Css || {};
+Elm.Css.make = function (_elm) {
+   "use strict";
+   _elm.Css = _elm.Css || {};
+   if (_elm.Css.values) return _elm.Css.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Color = Elm.Color.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $Html$Attributes = Elm.Html.Attributes.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var _op = {};
+   var style = F3(function (name,value,styles) {    return A2($List.append,styles,_U.list([{ctor: "_Tuple2",_0: name,_1: value}]));});
+   var setViewport = A3($Html.node,
+   "meta",
+   _U.list([$Html$Attributes.name("viewport"),$Html$Attributes.content("width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")]),
+   _U.list([]));
+   var url = function (path) {    return A2($Basics._op["++"],"url(\"",A2($Basics._op["++"],path,"\")"));};
+   var px = function (num) {    return A2($Basics._op["++"],$Basics.toString(num),"px ");};
+   var colorString = function (color) {
+      var rgba = $Color.toRgb(color);
+      var r = A2($Basics._op["++"],"rgba(",A2($Basics._op["++"],$Basics.toString(rgba.red),", "));
+      var g = A2($Basics._op["++"],$Basics.toString(rgba.green),", ");
+      var b = A2($Basics._op["++"],$Basics.toString(rgba.blue),", ");
+      var a = A2($Basics._op["++"],$Basics.toString(rgba.alpha),")");
+      return A2($Basics._op["++"],r,A2($Basics._op["++"],g,A2($Basics._op["++"],b,a)));
+   };
+   return _elm.Css.values = {_op: _op,colorString: colorString,px: px,url: url,setViewport: setViewport,style: style};
+};

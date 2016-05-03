@@ -1,0 +1,62 @@
+Elm.Css = Elm.Css || {};
+Elm.Css.Transform2 = Elm.Css.Transform2 || {};
+Elm.Css.Transform2.make = function (_elm) {
+   "use strict";
+   _elm.Css = _elm.Css || {};
+   _elm.Css.Transform2 = _elm.Css.Transform2 || {};
+   if (_elm.Css.Transform2.values) return _elm.Css.Transform2.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Css = Elm.Css.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $String = Elm.String.make(_elm),
+   $Vendor = Elm.Vendor.make(_elm);
+   var _op = {};
+   var matrix2 = F6(function (scalex,skewx,skewy,scaley,x,y) {
+      return A2($Basics._op["++"],
+      "matrix(",
+      A2($Basics._op["++"],
+      $Basics.toString(scalex),
+      A2($Basics._op["++"],
+      ", ",
+      A2($Basics._op["++"],
+      $Basics.toString(skewx),
+      A2($Basics._op["++"],
+      ", ",
+      A2($Basics._op["++"],
+      $Basics.toString(skewy),
+      A2($Basics._op["++"],
+      ", ",
+      A2($Basics._op["++"],
+      $Basics.toString(scaley),
+      A2($Basics._op["++"],", ",A2($Basics._op["++"],$Basics.toString(x),A2($Basics._op["++"],", ",A2($Basics._op["++"],$Basics.toString(y),")"))))))))))));
+   });
+   var skew2 = F2(function (x,y) {
+      return A2($Basics._op["++"],
+      "skew(",
+      A2($Basics._op["++"],$Basics.toString(x),A2($Basics._op["++"],"deg, ",A2($Basics._op["++"],$Basics.toString(y),"deg)"))));
+   });
+   var scale2 = F2(function (x,y) {
+      return A2($Basics._op["++"],"scale(",A2($Basics._op["++"],$Basics.toString(x),A2($Basics._op["++"],",",A2($Basics._op["++"],$Basics.toString(y),")"))));
+   });
+   var rotate2 = function (degrees) {    return A2($Basics._op["++"],"rotate(",A2($Basics._op["++"],$Basics.toString(degrees),"deg)"));};
+   var translate2 = F2(function (x,y) {
+      return A2($Basics._op["++"],
+      "translate(",
+      A2($Basics._op["++"],$Basics.toString(x),A2($Basics._op["++"],"px, ",A2($Basics._op["++"],$Basics.toString(y),"px)"))));
+   });
+   var transform2 = F2(function (transforms,styles) {
+      var name = "transform";
+      var prefix = $Vendor.prefix;
+      var string = A2($String.join," ",transforms);
+      return _U.eq(prefix,$Vendor.Webkit) ? A3($Css.style,A2($Basics._op["++"],"-webkit-",name),string,styles) : _U.eq(prefix,$Vendor.MS) ? A3($Css.style,
+      A2($Basics._op["++"],"-ms-",name),
+      string,
+      styles) : A3($Css.style,name,string,styles);
+   });
+   return _elm.Css.Transform2.values = {_op: _op,transform2: transform2,translate2: translate2,rotate2: rotate2,scale2: scale2,skew2: skew2,matrix2: matrix2};
+};

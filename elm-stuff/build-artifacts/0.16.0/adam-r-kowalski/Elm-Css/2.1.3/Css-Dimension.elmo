@@ -1,0 +1,24 @@
+Elm.Css = Elm.Css || {};
+Elm.Css.Dimension = Elm.Css.Dimension || {};
+Elm.Css.Dimension.make = function (_elm) {
+   "use strict";
+   _elm.Css = _elm.Css || {};
+   _elm.Css.Dimension = _elm.Css.Dimension || {};
+   if (_elm.Css.Dimension.values) return _elm.Css.Dimension.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Css = Elm.Css.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var _op = {};
+   var width = F2(function (w,styles) {    return A3($Css.style,"width",$Css.px(w),styles);});
+   var minWidth = F2(function (w,styles) {    return A3($Css.style,"min-width",$Css.px(w),styles);});
+   var minHeight = F2(function (h,styles) {    return A3($Css.style,"min-height",$Css.px(h),styles);});
+   var maxWidth = F2(function (w,styles) {    return A3($Css.style,"max-width",$Css.px(w),styles);});
+   var maxHeight = F2(function (h,styles) {    return A3($Css.style,"max-height",$Css.px(h),styles);});
+   var height = F2(function (h,styles) {    return A3($Css.style,"height",$Css.px(h),styles);});
+   return _elm.Css.Dimension.values = {_op: _op,height: height,maxHeight: maxHeight,maxWidth: maxWidth,minHeight: minHeight,minWidth: minWidth,width: width};
+};

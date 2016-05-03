@@ -1,0 +1,79 @@
+Elm.Css = Elm.Css || {};
+Elm.Css.Position = Elm.Css.Position || {};
+Elm.Css.Position.make = function (_elm) {
+   "use strict";
+   _elm.Css = _elm.Css || {};
+   _elm.Css.Position = _elm.Css.Position || {};
+   if (_elm.Css.Position.values) return _elm.Css.Position.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Css = Elm.Css.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var _op = {};
+   var zIndex = F2(function (p,styles) {    return A3($Css.style,"z-index",$Basics.toString(p),styles);});
+   var top = F2(function (t,styles) {    return A3($Css.style,"top",$Css.px(t),styles);});
+   var right = F2(function (r,styles) {    return A3($Css.style,"right",$Css.px(r),styles);});
+   var left = F2(function (l,styles) {    return A3($Css.style,"left",$Css.px(l),styles);});
+   var bottom = F2(function (b,styles) {    return A3($Css.style,"bottom",$Css.px(b),styles);});
+   var clip = F5(function (t,r,b,l,styles) {
+      var string = A2($Basics._op["++"],
+      "rect(",
+      A2($Basics._op["++"],
+      $Basics.toString(t),
+      A2($Basics._op["++"],
+      "px, ",
+      A2($Basics._op["++"],
+      $Basics.toString(r),
+      A2($Basics._op["++"],"px, ",A2($Basics._op["++"],$Basics.toString(b),A2($Basics._op["++"],"px, ",A2($Basics._op["++"],$Basics.toString(l),"px)"))))))));
+      return A3($Css.style,"clip",string,styles);
+   });
+   var positionString = function (position) {
+      var _p0 = position;
+      switch (_p0.ctor)
+      {case "Absolute": return "absolute";
+         case "Fixed": return "fixed";
+         case "Relative": return "relative";
+         default: return "static";}
+   };
+   var position = F2(function (p,styles) {    return A3($Css.style,"position",positionString(p),styles);});
+   var overflowString = function (overflow) {
+      var _p1 = overflow;
+      switch (_p1.ctor)
+      {case "AutoOverflow": return "auto";
+         case "Hidden": return "hidden";
+         case "Scroll": return "scroll";
+         default: return "visible";}
+   };
+   var overflow = F2(function (o,styles) {    return A3($Css.style,"overflow",overflowString(o),styles);});
+   var Static = {ctor: "Static"};
+   var Relative = {ctor: "Relative"};
+   var Fixed = {ctor: "Fixed"};
+   var Absolute = {ctor: "Absolute"};
+   var Visible = {ctor: "Visible"};
+   var Scroll = {ctor: "Scroll"};
+   var Hidden = {ctor: "Hidden"};
+   var AutoOverflow = {ctor: "AutoOverflow"};
+   return _elm.Css.Position.values = {_op: _op
+                                     ,AutoOverflow: AutoOverflow
+                                     ,Hidden: Hidden
+                                     ,Scroll: Scroll
+                                     ,Visible: Visible
+                                     ,Absolute: Absolute
+                                     ,Fixed: Fixed
+                                     ,Relative: Relative
+                                     ,Static: Static
+                                     ,overflowString: overflowString
+                                     ,positionString: positionString
+                                     ,clip: clip
+                                     ,bottom: bottom
+                                     ,left: left
+                                     ,overflow: overflow
+                                     ,position: position
+                                     ,right: right
+                                     ,top: top
+                                     ,zIndex: zIndex};
+};

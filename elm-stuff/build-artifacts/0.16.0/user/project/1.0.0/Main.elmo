@@ -1,0 +1,52 @@
+Elm.Main = Elm.Main || {};
+Elm.Main.make = function (_elm) {
+   "use strict";
+   _elm.Main = _elm.Main || {};
+   if (_elm.Main.values) return _elm.Main.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Array = Elm.Array.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $Html$Events = Elm.Html.Events.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $StartApp$Simple = Elm.StartApp.Simple.make(_elm);
+   var _op = {};
+   var NextClick = {ctor: "NextClick"};
+   var view = F2(function (address,model) {
+      return A2($Html.div,
+      _U.list([A2($Html$Events.onClick,address,NextClick)]),
+      _U.list([A2($Html.div,_U.list([]),_U.list([$Html.text(model.headline)])),A2($Html.div,_U.list([]),_U.list([$Html.text(model.content)]))]));
+   });
+   var NoOp = {ctor: "NoOp"};
+   var changeID = function (model) {    return _U.eq(model.nextID,2) ? 0 : model.nextID + 1;};
+   var contents = $Array.fromList(_U.list(["content 1","content 2","content 3"]));
+   var headlines = $Array.fromList(_U.list(["Slide 1","Slide 2","Slide 3"]));
+   var update = F2(function (action,model) {
+      var _p0 = action;
+      if (_p0.ctor === "NoOp") {
+            return model;
+         } else {
+            var content = A2($Maybe.withDefault,"",A2($Array.get,model.nextID,contents));
+            var headline = A2($Maybe.withDefault,"",A2($Array.get,model.nextID,headlines));
+            return _U.update(model,{headline: headline,content: content,nextID: changeID(model)});
+         }
+   });
+   var init = {headline: "Slide 1",content: "content 1",nextID: 1};
+   var main = $StartApp$Simple.start({model: init,update: update,view: view});
+   var Model = F3(function (a,b,c) {    return {headline: a,content: b,nextID: c};});
+   return _elm.Main.values = {_op: _op
+                             ,Model: Model
+                             ,init: init
+                             ,headlines: headlines
+                             ,contents: contents
+                             ,changeID: changeID
+                             ,NoOp: NoOp
+                             ,NextClick: NextClick
+                             ,update: update
+                             ,view: view
+                             ,main: main};
+};

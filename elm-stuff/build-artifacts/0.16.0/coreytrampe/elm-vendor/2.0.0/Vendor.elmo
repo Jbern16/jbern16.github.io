@@ -1,0 +1,23 @@
+Elm.Vendor = Elm.Vendor || {};
+Elm.Vendor.make = function (_elm) {
+   "use strict";
+   _elm.Vendor = _elm.Vendor || {};
+   if (_elm.Vendor.values) return _elm.Vendor.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Native$Vendor = Elm.Native.Vendor.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var _op = {};
+   var Unknown = {ctor: "Unknown"};
+   var O = {ctor: "O"};
+   var MS = {ctor: "MS"};
+   var Webkit = {ctor: "Webkit"};
+   var Moz = {ctor: "Moz"};
+   var prefix = _U.eq($Native$Vendor.prefix,"webkit") ? Webkit : _U.eq($Native$Vendor.prefix,"moz") ? Moz : _U.eq($Native$Vendor.prefix,
+   "ms") ? MS : _U.eq($Native$Vendor.prefix,"o") ? O : Unknown;
+   return _elm.Vendor.values = {_op: _op,prefix: prefix,Moz: Moz,Webkit: Webkit,MS: MS,O: O,Unknown: Unknown};
+};

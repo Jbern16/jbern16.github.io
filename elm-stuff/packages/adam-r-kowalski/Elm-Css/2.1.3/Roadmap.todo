@@ -1,0 +1,10 @@
+My Tasks:
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+  ✔ Write examples that will also provide a built in tutorial @done(2015-07-01 16:12)
+  ✔ Add any prefixes needed by browsers @done(2015-06-26 22:12)
+  ✔ Refactor all shadows into a standalone module Css.Shadow @done(2015-06-25 23:33)
+  ✔ Refactor cursor into a standalone module Css.Cursor @done(2015-06-25 02:06)
+  ✔ Enable responsive design with viewport meta tag @done(2015-06-25 01:55)
+  ✔ Finish writing all documentation @done(2015-06-24 15:22)
