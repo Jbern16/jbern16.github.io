@@ -29,7 +29,6 @@ Elm.Jbern16.make = function (_elm) {
             var links = $Array.fromList(A2($String.split,",",model.content));
             var email = A2(getLink,links,0);
             var twitter = A2(getLink,links,1);
-            var medium = A2(getLink,links,2);
             var linkedIn = A2(getLink,links,3);
             return A2($Html.div,
             _U.list([]),
@@ -40,19 +39,20 @@ Elm.Jbern16.make = function (_elm) {
                     _U.list([iconStyle,$Html$Attributes.href(twitter)]),
                     _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-twitter fa-3x")]),_U.list([]))]))
                     ,A2($Html.a,
-                    _U.list([iconStyle,$Html$Attributes.href(medium)]),
-                    _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-medium fa-3x")]),_U.list([]))]))
-                    ,A2($Html.a,
                     _U.list([iconStyle,$Html$Attributes.href(linkedIn)]),
                     _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-linkedin fa-3x")]),_U.list([]))]))]));
          } else if (_U.eq(model.headline,"My Work:")) {
                var links = $Array.fromList(A2($String.split,",",model.content));
                var github = A2(getLink,links,0);
+               var medium = A2(getLink,links,2);
                return A2($Html.div,
                _U.list([]),
                _U.list([A2($Html.a,
-               _U.list([iconStyle,$Html$Attributes.href(github)]),
-               _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-github fa-3x")]),_U.list([]))]))]));
+                       _U.list([iconStyle,$Html$Attributes.href(github)]),
+                       _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-github fa-3x")]),_U.list([]))]))
+                       ,A2($Html.a,
+                       _U.list([iconStyle,$Html$Attributes.href(medium)]),
+                       _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-medium fa-3x")]),_U.list([]))]))]));
             } else return A2($Html.div,
             _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "24px"}]))]),
             _U.list([$Html.text(model.content)]));
