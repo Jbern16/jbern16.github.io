@@ -13,6 +13,7 @@ import String exposing (split)
 type alias Model =
   { headline : String
   , content : String
+  , backgroundColor : String
   , nextID : Int
   }
 
@@ -20,18 +21,23 @@ init : Model
 init =
   { headline = "Jonathan Bernesser"
   , content = "Web Developer"
+  , backgroundColor = "#007EA7"
   , nextID = 1
   }
 
 --UPDATE
 
-headlines : Array String 
+headlines : Array String
 headlines =
   fromList [ "Jonathan Bernesser", "My Work:", "Contact Me:" ]
 
 contents : Array String
 contents =
   fromList [ "Web Developer", "https://github.com/jbern16", "mailto:jbern16@gmail.com, https://twitter.com/jbern16, https://medium.com/@jBern16, https://www.linkedin.com/in/jonathanbernesser" ]
+
+backgroundColors : Array String
+backgroundColors =
+  fromList [ "#007EA7", "#5E8C61", "#99D5C9" ]
 
 changeID : Model -> Int
 changeID model =
@@ -53,20 +59,19 @@ update action model =
       let
         headline = withDefault "" ( get (model.nextID) headlines )
         content = withDefault "" ( get (model.nextID) contents )
+        backgroundColor = withDefault "" ( get (model.nextID ) backgroundColors)
       in
         { model | headline = headline
                 , content = content
+                , backgroundColor = backgroundColor
                 , nextID = (changeID model) }
 
 --VIEW
 
-backgroundColors : Array String
-backgroundColors =
-  fromList [ "#99D5C9", "#007EA7", "#5E8C61" ]
 
 backgroundStyle : String -> Html.Attribute
-backgroundStyle backgroundColor =
-  style [ ( "backgroundColor", backgroundColor)
+backgroundStyle hex  =
+  style [ ( "backgroundColor", hex)
         , ( "height", "100vh")
         ]
 
@@ -126,29 +131,26 @@ findContent model =
     div  [ style [ ("font-size", "24px") ] ] [ text model.content ]
 
 
-findSep : Model -> Html
-findSep model =
-  if model.headline == "Contact Me:" then
+findSep : String -> Html
+findSep headline =
+  if headline == "Contact Me:" then
     span [ sepStyle ] [ text " ° " ]
-  else if model.headline == "My Work:" then
+  else if headline == "My Work:" then
     span [ sepStyle ] [ text " ° ° " ]
   else
     span [ sepStyle ] [ text " ° ° ° " ]
 
 view : Signal.Address Action -> Model -> Html
 view address model =
-  let
-    backgroundColor = withDefault "" ( get (model.nextID ) backgroundColors)
-  in
-    div [ backgroundStyle backgroundColor ] [
-      div [ onClick address NextClick ] [
-        div [ textContainer ] [
-          div [ style [ ("font-size", "42px") ] ] [ text model.headline ]
-          , findSep model
-          , findContent model
-        ]
+  div [ backgroundStyle model.backgroundColor ] [
+    div [ onClick address NextClick ] [
+      div [ textContainer ] [
+        div [ style [ ("font-size", "42px") ] ] [ text model.headline ]
+        , findSep model.headline
+        , findContent model
       ]
     ]
+  ]
 
 main : Signal Html
 main =
