@@ -80,7 +80,7 @@ update action model =
 backgroundStyle : String -> Html.Attribute
 backgroundStyle hex  =
   style [ ( "backgroundColor", hex)
-        , ( "min-height", "100vh")
+        , ( "height", "100%")
         , ( "background-position", "center")
         , ( "background-size", "cover")
         , ( "cursor", "e-resize")

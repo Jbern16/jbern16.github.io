@@ -10403,7 +10403,7 @@ Elm.Jbern16.make = function (_elm) {
                                                       ,{ctor: "_Tuple2",_0: "text-align",_1: "center"}]));
    var backgroundStyle = function (hex) {
       return $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "backgroundColor",_1: hex}
-                                            ,{ctor: "_Tuple2",_0: "min-height",_1: "100vh"}
+                                            ,{ctor: "_Tuple2",_0: "height",_1: "100%"}
                                             ,{ctor: "_Tuple2",_0: "background-position",_1: "center"}
                                             ,{ctor: "_Tuple2",_0: "background-size",_1: "cover"}
                                             ,{ctor: "_Tuple2",_0: "cursor",_1: "e-resize"}]));

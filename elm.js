@@ -10398,12 +10398,12 @@ Elm.Jbern16.make = function (_elm) {
             _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "24px"}]))]),
             _U.list([$Html.text(model.content)]));
    };
-   var textContainer = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "paddingTop",_1: "15%"}
+   var textContainer = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "paddingTop",_1: "13%"}
                                                       ,{ctor: "_Tuple2",_0: "paddingBottom",_1: "20%"}
                                                       ,{ctor: "_Tuple2",_0: "text-align",_1: "center"}]));
    var backgroundStyle = function (hex) {
       return $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "backgroundColor",_1: hex}
-                                            ,{ctor: "_Tuple2",_0: "min-height",_1: "100vh"}
+                                            ,{ctor: "_Tuple2",_0: "height",_1: "100%"}
                                             ,{ctor: "_Tuple2",_0: "background-position",_1: "center"}
                                             ,{ctor: "_Tuple2",_0: "background-size",_1: "cover"}
                                             ,{ctor: "_Tuple2",_0: "cursor",_1: "e-resize"}]));
@@ -10415,12 +10415,12 @@ Elm.Jbern16.make = function (_elm) {
       _U.list([A2($Html.div,
       _U.list([A2($Html$Events.onClick,address,NextClick)]),
       _U.list([A2($Html.div,
-              _U.list([$Html$Attributes.$class("small-3 small-centered columns"),textContainer]),
-              _U.list([A2($Html.h1,_U.list([headlineStyle]),_U.list([$Html.text(model.headline)]))
+              _U.list([$Html$Attributes.$class("small-5 small-centered columns"),textContainer]),
+              _U.list([A2($Html.p,_U.list([headlineStyle]),_U.list([$Html.text(model.headline)]))
                       ,findSep(model.headline)
                       ,findContent(model)
                       ,A2($Html.br,_U.list([]),_U.list([]))
-                      ,A2($Html.h4,
+                      ,A2($Html.p,
                       _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "24px"}]))]),
                       _U.list([$Html.text(model.flavorText)]))]))
               ,footer]))]));
