@@ -10364,7 +10364,7 @@ Elm.Jbern16.make = function (_elm) {
                                                       ,{ctor: "_Tuple2",_0: "top",_1: "22%"}]));
    var sepStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "28px"}]));
    var findSep = function (headline) {
-      return _U.eq(headline,"Contact Me") ? A2($Html.span,_U.list([sepStyle]),_U.list([$Html.text(" ° ")])) : _U.eq(headline,"My Work:") ? A2($Html.span,
+      return _U.eq(headline,"Contact Me") ? A2($Html.span,_U.list([sepStyle]),_U.list([$Html.text(" ° ")])) : _U.eq(headline,"My Work") ? A2($Html.span,
       _U.list([sepStyle]),
       _U.list([$Html.text(" ° ° ")])) : A2($Html.span,_U.list([sepStyle]),_U.list([$Html.text(" ° ° ° ")]));
    };
@@ -10409,7 +10409,7 @@ Elm.Jbern16.make = function (_elm) {
    var backgroundStyle = function (hex) {
       return $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "backgroundColor",_1: hex}
                                             ,{ctor: "_Tuple2",_0: "height",_1: "100vh"}
-                                            ,{ctor: "_Tuple2",_0: "width",_1: "185vh"}
+                                            ,{ctor: "_Tuple2",_0: "width",_1: "100%"}
                                             ,{ctor: "_Tuple2",_0: "cursor",_1: "e-resize"}]));
    };
    var NextClick = {ctor: "NextClick"};
