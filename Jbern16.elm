@@ -13,6 +13,7 @@ import String exposing (split)
 type alias Model =
   { headline : String
   , content : String
+  , flavorText : String
   , backgroundColor : String
   , nextID : Int
   }
@@ -20,7 +21,8 @@ type alias Model =
 init : Model
 init =
   { headline = "Jonathan Bernesser"
-  , content = "Web Developer"
+  , content = "New York Based Web Developer"
+  , flavorText = ""
   , backgroundColor = "#EBF5DF"
   , nextID = 1
   }
@@ -33,7 +35,11 @@ headlines =
 
 contents : Array String
 contents =
-  fromList [ "Web Developer", "https://github.com/jbern16", "mailto:jbern16@gmail.com, https://twitter.com/jbern16, https://medium.com/@jBern16, https://www.linkedin.com/in/jonathanbernesser" ]
+  fromList [ "New York Based Web Developer", "https://github.com/jbern16, https://medium.com/@jBern16", "mailto:jbern16@gmail.com, https://twitter.com/jbern16, https://www.linkedin.com/in/jonathanbernesser" ]
+
+flavorTexts : Array String
+flavorTexts =
+  fromList [ "", "Currently enjoying Rails, Ruby, Elm, and JS", "" ]
 
 backgroundColors : Array String
 backgroundColors =
@@ -59,10 +65,12 @@ update action model =
       let
         headline = withDefault "" ( get (model.nextID) headlines )
         content = withDefault "" ( get (model.nextID) contents )
-        backgroundColor = withDefault "" ( get (model.nextID ) backgroundColors)
+        flavorText = withDefault "" ( get (model.nextID) flavorTexts )
+        backgroundColor = withDefault "" ( get (model.nextID ) backgroundColors )
       in
         { model | headline = headline
                 , content = content
+                , flavorText = flavorText
                 , backgroundColor = backgroundColor
                 , nextID = (changeID model) }
 
@@ -130,9 +138,9 @@ findContent model =
 
   else if model.headline == "My Work" then
     let
-      links = fromList ( split ","  model.content )
+      links  = fromList ( split ","  model.content )
       github = getLink links 0
-      medium   = getLink links 2
+      medium = getLink links 1
     in
       div  [ ]
         [ a [ iconStyle, href github ]
@@ -148,7 +156,7 @@ findSep : String -> Html
 findSep headline =
   if headline == "Contact Me" then
     span [ sepStyle ] [ text " ° " ]
-  else if headline == "My Work:" then
+  else if headline == "My Work" then
     span [ sepStyle ] [ text " ° ° " ]
   else
     span [ sepStyle ] [ text " ° ° ° " ]
@@ -163,14 +171,14 @@ footer =
                    ]
     linkStyle = style [ ( "position", "absolute" )
                       , ( "bottom", "35%")
-                      , ( "left", "42.8%")
+                      , ( "left", "42.1%")
                       , ( "color", "#45503B")
                       , ( "font-size", "14px")
                       ]
     source = "https://github.com/Jbern16/jbern16.github.io"
   in
     div [ style' ] [
-      a [ linkStyle, href source ] [ text "Made with Elm. Check me out!" ]
+      a [ linkStyle, href source ] [ text "Made with Elm. Hosted with love" ]
     ]
 
 view : Signal.Address Action -> Model -> Html
@@ -181,6 +189,7 @@ view address model =
         h1 [ headlineStyle ] [ text model.headline ]
         , findSep model.headline
         , findContent model
+        , h4  [ style [ ("font-size", "24px") ] ] [ text model.flavorText ]
         , footer
       ]
     ]

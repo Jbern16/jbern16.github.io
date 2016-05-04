@@ -10342,7 +10342,7 @@ Elm.Jbern16.make = function (_elm) {
       var source = "https://github.com/Jbern16/jbern16.github.io";
       var linkStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "position",_1: "absolute"}
                                                      ,{ctor: "_Tuple2",_0: "bottom",_1: "35%"}
-                                                     ,{ctor: "_Tuple2",_0: "left",_1: "42.8%"}
+                                                     ,{ctor: "_Tuple2",_0: "left",_1: "42.1%"}
                                                      ,{ctor: "_Tuple2",_0: "color",_1: "#45503B"}
                                                      ,{ctor: "_Tuple2",_0: "font-size",_1: "14px"}]));
       var style$ = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "position",_1: "absolute"}
@@ -10352,7 +10352,7 @@ Elm.Jbern16.make = function (_elm) {
                                                   ,{ctor: "_Tuple2",_0: "bottom",_1: "0%"}]));
       return A2($Html.div,
       _U.list([style$]),
-      _U.list([A2($Html.a,_U.list([linkStyle,$Html$Attributes.href(source)]),_U.list([$Html.text("Made with Elm. Check me out!")]))]));
+      _U.list([A2($Html.a,_U.list([linkStyle,$Html$Attributes.href(source)]),_U.list([$Html.text("Made with Elm. Hosted with love")]))]));
    }();
    var getLink = F2(function (content,index) {    return A2($Maybe.withDefault,"",A2($Array.get,index,content));});
    var headlineStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "46px"}
@@ -10364,7 +10364,7 @@ Elm.Jbern16.make = function (_elm) {
                                                       ,{ctor: "_Tuple2",_0: "top",_1: "22%"}]));
    var sepStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "28px"}]));
    var findSep = function (headline) {
-      return _U.eq(headline,"Contact Me") ? A2($Html.span,_U.list([sepStyle]),_U.list([$Html.text(" ° ")])) : _U.eq(headline,"My Work:") ? A2($Html.span,
+      return _U.eq(headline,"Contact Me") ? A2($Html.span,_U.list([sepStyle]),_U.list([$Html.text(" ° ")])) : _U.eq(headline,"My Work") ? A2($Html.span,
       _U.list([sepStyle]),
       _U.list([$Html.text(" ° ° ")])) : A2($Html.span,_U.list([sepStyle]),_U.list([$Html.text(" ° ° ° ")]));
    };
@@ -10389,7 +10389,7 @@ Elm.Jbern16.make = function (_elm) {
          } else if (_U.eq(model.headline,"My Work")) {
                var links = $Array.fromList(A2($String.split,",",model.content));
                var github = A2(getLink,links,0);
-               var medium = A2(getLink,links,2);
+               var medium = A2(getLink,links,1);
                return A2($Html.div,
                _U.list([]),
                _U.list([A2($Html.a,
@@ -10420,14 +10420,19 @@ Elm.Jbern16.make = function (_elm) {
       _U.list([A2($Html$Events.onClick,address,NextClick)]),
       _U.list([A2($Html.div,
       _U.list([textContainer]),
-      _U.list([A2($Html.h1,_U.list([headlineStyle]),_U.list([$Html.text(model.headline)])),findSep(model.headline),findContent(model),footer]))]))]));
+      _U.list([A2($Html.h1,_U.list([headlineStyle]),_U.list([$Html.text(model.headline)]))
+              ,findSep(model.headline)
+              ,findContent(model)
+              ,A2($Html.h4,_U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "24px"}]))]),_U.list([$Html.text(model.flavorText)]))
+              ,footer]))]))]));
    });
    var NoOp = {ctor: "NoOp"};
    var changeID = function (model) {    return _U.eq(model.nextID,2) ? 0 : model.nextID + 1;};
    var backgroundColors = $Array.fromList(_U.list(["#EBF5DF","#DBFEB8","#99D5C9"]));
-   var contents = $Array.fromList(_U.list(["Web Developer"
-                                          ,"https://github.com/jbern16"
-                                          ,"mailto:jbern16@gmail.com, https://twitter.com/jbern16, https://medium.com/@jBern16, https://www.linkedin.com/in/jonathanbernesser"]));
+   var flavorTexts = $Array.fromList(_U.list(["","Currently enjoying Rails, Ruby, Elm, and JS",""]));
+   var contents = $Array.fromList(_U.list(["New York Based Web Developer"
+                                          ,"https://github.com/jbern16, https://medium.com/@jBern16"
+                                          ,"mailto:jbern16@gmail.com, https://twitter.com/jbern16, https://www.linkedin.com/in/jonathanbernesser"]));
    var headlines = $Array.fromList(_U.list(["Jonathan Bernesser","My Work","Contact Me"]));
    var update = F2(function (action,model) {
       var _p0 = action;
@@ -10435,19 +10440,21 @@ Elm.Jbern16.make = function (_elm) {
             return model;
          } else {
             var backgroundColor = A2($Maybe.withDefault,"",A2($Array.get,model.nextID,backgroundColors));
+            var flavorText = A2($Maybe.withDefault,"",A2($Array.get,model.nextID,flavorTexts));
             var content = A2($Maybe.withDefault,"",A2($Array.get,model.nextID,contents));
             var headline = A2($Maybe.withDefault,"",A2($Array.get,model.nextID,headlines));
-            return _U.update(model,{headline: headline,content: content,backgroundColor: backgroundColor,nextID: changeID(model)});
+            return _U.update(model,{headline: headline,content: content,flavorText: flavorText,backgroundColor: backgroundColor,nextID: changeID(model)});
          }
    });
-   var init = {headline: "Jonathan Bernesser",content: "Web Developer",backgroundColor: "#EBF5DF",nextID: 1};
+   var init = {headline: "Jonathan Bernesser",content: "New York Based Web Developer",flavorText: "",backgroundColor: "#EBF5DF",nextID: 1};
    var main = $StartApp$Simple.start({model: init,update: update,view: view});
-   var Model = F4(function (a,b,c,d) {    return {headline: a,content: b,backgroundColor: c,nextID: d};});
+   var Model = F5(function (a,b,c,d,e) {    return {headline: a,content: b,flavorText: c,backgroundColor: d,nextID: e};});
    return _elm.Jbern16.values = {_op: _op
                                 ,Model: Model
                                 ,init: init
                                 ,headlines: headlines
                                 ,contents: contents
+                                ,flavorTexts: flavorTexts
                                 ,backgroundColors: backgroundColors
                                 ,changeID: changeID
                                 ,NoOp: NoOp
