@@ -21,7 +21,7 @@ init : Model
 init =
   { headline = "Jonathan Bernesser"
   , content = "Web Developer"
-  , backgroundColor = "#007EA7"
+  , backgroundColor = "#EBF5DF"
   , nextID = 1
   }
 
@@ -29,7 +29,7 @@ init =
 
 headlines : Array String
 headlines =
-  fromList [ "Jonathan Bernesser", "My Work:", "Contact Me:" ]
+  fromList [ "Jonathan Bernesser", "My Work", "Contact Me" ]
 
 contents : Array String
 contents =
@@ -37,7 +37,7 @@ contents =
 
 backgroundColors : Array String
 backgroundColors =
-  fromList [ "#007EA7", "#5E8C61", "#99D5C9" ]
+  fromList [ "#EBF5DF", "#DBFEB8", "#99D5C9" ]
 
 changeID : Model -> Int
 changeID model =
@@ -73,6 +73,7 @@ backgroundStyle : String -> Html.Attribute
 backgroundStyle hex  =
   style [ ( "backgroundColor", hex)
         , ( "height", "100vh")
+        , ( "width", "185vh")
         , ( "cursor", "e-resize")
         ]
 
@@ -94,13 +95,24 @@ sepStyle : Html.Attribute
 sepStyle =
   style [ ( "font-size", "28px" ) ]
 
+headlineStyle : Html.Attribute
+headlineStyle =
+  style [ ( "font-size", "46px")
+        , ( "border-style", "solid")
+        , ( "border-width", "3px")
+        , ( "width", "38%")
+        , ( "position", "absolute")
+        , ( "right", "29.5%")
+        , ( "top", "22%")
+        ]
+
 getLink : Array String -> Int -> String
 getLink content index =
   withDefault "" ( get index content )
 
 findContent : Model -> Html
 findContent model =
-  if model.headline == "Contact Me:" then
+  if model.headline == "Contact Me" then
     let
       links = fromList ( split ","  model.content )
       email    = getLink links 0
@@ -116,7 +128,7 @@ findContent model =
           [ i [ class "fa fa-linkedin fa-3x" ] [ ] ]
         ]
 
-  else if model.headline == "My Work:" then
+  else if model.headline == "My Work" then
     let
       links = fromList ( split ","  model.content )
       github = getLink links 0
@@ -134,21 +146,42 @@ findContent model =
 
 findSep : String -> Html
 findSep headline =
-  if headline == "Contact Me:" then
+  if headline == "Contact Me" then
     span [ sepStyle ] [ text " ° " ]
   else if headline == "My Work:" then
     span [ sepStyle ] [ text " ° ° " ]
   else
     span [ sepStyle ] [ text " ° ° ° " ]
 
+footer =
+  let
+    style' = style [ ( "position" , "absolute")
+                   , ( "background-color", "#E9F1F7")
+                   , ( "height", "100px" )
+                   , ( "width", "100%")
+                   , ( "bottom", "0%")
+                   ]
+    linkStyle = style [ ( "position", "absolute" )
+                      , ( "bottom", "35%")
+                      , ( "left", "42.8%")
+                      , ( "color", "#45503B")
+                      , ( "font-size", "14px")
+                      ]
+    source = "https://github.com/Jbern16/jbern16.github.io"
+  in
+    div [ style' ] [
+      a [ linkStyle, href source ] [ text "Made with Elm. Check me out!" ]
+    ]
+
 view : Signal.Address Action -> Model -> Html
 view address model =
   div [ backgroundStyle model.backgroundColor ] [
     div [ onClick address NextClick ] [
       div [ textContainer ] [
-        div [ style [ ("font-size", "42px") ] ] [ text model.headline ]
+        h1 [ headlineStyle ] [ text model.headline ]
         , findSep model.headline
         , findContent model
+        , footer
       ]
     ]
   ]

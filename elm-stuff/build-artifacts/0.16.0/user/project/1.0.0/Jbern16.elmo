@@ -17,16 +17,39 @@ Elm.Jbern16.make = function (_elm) {
    $StartApp$Simple = Elm.StartApp.Simple.make(_elm),
    $String = Elm.String.make(_elm);
    var _op = {};
+   var footer = function () {
+      var source = "https://github.com/Jbern16/jbern16.github.io";
+      var linkStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "position",_1: "absolute"}
+                                                     ,{ctor: "_Tuple2",_0: "bottom",_1: "35%"}
+                                                     ,{ctor: "_Tuple2",_0: "left",_1: "42.8%"}
+                                                     ,{ctor: "_Tuple2",_0: "color",_1: "#45503B"}
+                                                     ,{ctor: "_Tuple2",_0: "font-size",_1: "14px"}]));
+      var style$ = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "position",_1: "absolute"}
+                                                  ,{ctor: "_Tuple2",_0: "background-color",_1: "#E9F1F7"}
+                                                  ,{ctor: "_Tuple2",_0: "height",_1: "100px"}
+                                                  ,{ctor: "_Tuple2",_0: "width",_1: "100%"}
+                                                  ,{ctor: "_Tuple2",_0: "bottom",_1: "0%"}]));
+      return A2($Html.div,
+      _U.list([style$]),
+      _U.list([A2($Html.a,_U.list([linkStyle,$Html$Attributes.href(source)]),_U.list([$Html.text("Made with Elm. Check me out!")]))]));
+   }();
    var getLink = F2(function (content,index) {    return A2($Maybe.withDefault,"",A2($Array.get,index,content));});
+   var headlineStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "46px"}
+                                                      ,{ctor: "_Tuple2",_0: "border-style",_1: "solid"}
+                                                      ,{ctor: "_Tuple2",_0: "border-width",_1: "3px"}
+                                                      ,{ctor: "_Tuple2",_0: "width",_1: "38%"}
+                                                      ,{ctor: "_Tuple2",_0: "position",_1: "absolute"}
+                                                      ,{ctor: "_Tuple2",_0: "right",_1: "29.5%"}
+                                                      ,{ctor: "_Tuple2",_0: "top",_1: "22%"}]));
    var sepStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "28px"}]));
    var findSep = function (headline) {
-      return _U.eq(headline,"Contact Me:") ? A2($Html.span,_U.list([sepStyle]),_U.list([$Html.text(" ° ")])) : _U.eq(headline,"My Work:") ? A2($Html.span,
+      return _U.eq(headline,"Contact Me") ? A2($Html.span,_U.list([sepStyle]),_U.list([$Html.text(" ° ")])) : _U.eq(headline,"My Work:") ? A2($Html.span,
       _U.list([sepStyle]),
       _U.list([$Html.text(" ° ° ")])) : A2($Html.span,_U.list([sepStyle]),_U.list([$Html.text(" ° ° ° ")]));
    };
    var iconStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "padding",_1: "10px"},{ctor: "_Tuple2",_0: "color",_1: "black"}]));
    var findContent = function (model) {
-      if (_U.eq(model.headline,"Contact Me:")) {
+      if (_U.eq(model.headline,"Contact Me")) {
             var links = $Array.fromList(A2($String.split,",",model.content));
             var email = A2(getLink,links,0);
             var twitter = A2(getLink,links,1);
@@ -42,7 +65,7 @@ Elm.Jbern16.make = function (_elm) {
                     ,A2($Html.a,
                     _U.list([iconStyle,$Html$Attributes.href(linkedIn)]),
                     _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-linkedin fa-3x")]),_U.list([]))]))]));
-         } else if (_U.eq(model.headline,"My Work:")) {
+         } else if (_U.eq(model.headline,"My Work")) {
                var links = $Array.fromList(A2($String.split,",",model.content));
                var github = A2(getLink,links,0);
                var medium = A2(getLink,links,2);
@@ -65,6 +88,7 @@ Elm.Jbern16.make = function (_elm) {
    var backgroundStyle = function (hex) {
       return $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "backgroundColor",_1: hex}
                                             ,{ctor: "_Tuple2",_0: "height",_1: "100vh"}
+                                            ,{ctor: "_Tuple2",_0: "width",_1: "185vh"}
                                             ,{ctor: "_Tuple2",_0: "cursor",_1: "e-resize"}]));
    };
    var NextClick = {ctor: "NextClick"};
@@ -75,17 +99,15 @@ Elm.Jbern16.make = function (_elm) {
       _U.list([A2($Html$Events.onClick,address,NextClick)]),
       _U.list([A2($Html.div,
       _U.list([textContainer]),
-      _U.list([A2($Html.div,_U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "42px"}]))]),_U.list([$Html.text(model.headline)]))
-              ,findSep(model.headline)
-              ,findContent(model)]))]))]));
+      _U.list([A2($Html.h1,_U.list([headlineStyle]),_U.list([$Html.text(model.headline)])),findSep(model.headline),findContent(model),footer]))]))]));
    });
    var NoOp = {ctor: "NoOp"};
    var changeID = function (model) {    return _U.eq(model.nextID,2) ? 0 : model.nextID + 1;};
-   var backgroundColors = $Array.fromList(_U.list(["#007EA7","#5E8C61","#99D5C9"]));
+   var backgroundColors = $Array.fromList(_U.list(["#EBF5DF","#DBFEB8","#99D5C9"]));
    var contents = $Array.fromList(_U.list(["Web Developer"
                                           ,"https://github.com/jbern16"
                                           ,"mailto:jbern16@gmail.com, https://twitter.com/jbern16, https://medium.com/@jBern16, https://www.linkedin.com/in/jonathanbernesser"]));
-   var headlines = $Array.fromList(_U.list(["Jonathan Bernesser","My Work:","Contact Me:"]));
+   var headlines = $Array.fromList(_U.list(["Jonathan Bernesser","My Work","Contact Me"]));
    var update = F2(function (action,model) {
       var _p0 = action;
       if (_p0.ctor === "NoOp") {
@@ -97,7 +119,7 @@ Elm.Jbern16.make = function (_elm) {
             return _U.update(model,{headline: headline,content: content,backgroundColor: backgroundColor,nextID: changeID(model)});
          }
    });
-   var init = {headline: "Jonathan Bernesser",content: "Web Developer",backgroundColor: "#007EA7",nextID: 1};
+   var init = {headline: "Jonathan Bernesser",content: "Web Developer",backgroundColor: "#EBF5DF",nextID: 1};
    var main = $StartApp$Simple.start({model: init,update: update,view: view});
    var Model = F4(function (a,b,c,d) {    return {headline: a,content: b,backgroundColor: c,nextID: d};});
    return _elm.Jbern16.values = {_op: _op
@@ -114,9 +136,11 @@ Elm.Jbern16.make = function (_elm) {
                                 ,textContainer: textContainer
                                 ,iconStyle: iconStyle
                                 ,sepStyle: sepStyle
+                                ,headlineStyle: headlineStyle
                                 ,getLink: getLink
                                 ,findContent: findContent
                                 ,findSep: findSep
+                                ,footer: footer
                                 ,view: view
                                 ,main: main};
 };
