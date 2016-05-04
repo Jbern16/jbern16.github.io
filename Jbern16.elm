@@ -28,7 +28,7 @@ headlines =
   fromList [ "Jonathan Bernesser", " My Work:", "Contact Me:" ]
 
 contents =
-  fromList [ "Web Developer", "github.com/jbern16", "jbern16@gmail.com, twitter.com/jbern16, https://medium.com/@jBern16, https://www.linkedin.com/in/jonathanbernesser" ]
+  fromList [ "Web Developer", "https://github.com/jbern16", "https://jbern16@gmail.com, https://twitter.com/jbern16, https://medium.com/@jBern16, https://www.linkedin.com/in/jonathanbernesser" ]
 
 changeID model =
   if model.nextID == 2 then
@@ -100,7 +100,7 @@ findContent model =
           [ i [ class "fa fa-linkedin fa-3x" ] [ ] ]
         ]
 
-  else if model.headline == " My Work:" then
+  else if model.headline == "My Work:" then
     let
       links = fromList ( split ","  model.content )
       github = getLink links 0
