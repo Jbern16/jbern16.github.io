@@ -14,8 +14,44 @@ Elm.Jbern16.make = function (_elm) {
    $Maybe = Elm.Maybe.make(_elm),
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm),
-   $StartApp$Simple = Elm.StartApp.Simple.make(_elm);
+   $StartApp$Simple = Elm.StartApp.Simple.make(_elm),
+   $String = Elm.String.make(_elm);
    var _op = {};
+   var getLink = F2(function (content,index) {    return A2($Maybe.withDefault,"",A2($Array.get,index,content));});
+   var iconStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "padding",_1: "10px"},{ctor: "_Tuple2",_0: "color",_1: "black"}]));
+   var findContent = function (model) {
+      if (_U.eq(model.headline,"Contact Me:")) {
+            var links = $Array.fromList(A2($String.split,",",model.content));
+            var email = A2(getLink,links,0);
+            var twitter = A2(getLink,links,1);
+            var medium = A2(getLink,links,2);
+            var linkedIn = A2(getLink,links,3);
+            return A2($Html.div,
+            _U.list([]),
+            _U.list([A2($Html.a,
+                    _U.list([iconStyle,$Html$Attributes.href(email)]),
+                    _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-envelope fa-3x")]),_U.list([]))]))
+                    ,A2($Html.a,
+                    _U.list([iconStyle,$Html$Attributes.href(twitter)]),
+                    _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-twitter fa-3x")]),_U.list([]))]))
+                    ,A2($Html.a,
+                    _U.list([iconStyle,$Html$Attributes.href(medium)]),
+                    _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-medium fa-3x")]),_U.list([]))]))
+                    ,A2($Html.a,
+                    _U.list([iconStyle,$Html$Attributes.href(linkedIn)]),
+                    _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-linkedin fa-3x")]),_U.list([]))]))]));
+         } else if (_U.eq(model.headline," My Work:")) {
+               var links = $Array.fromList(A2($String.split,",",model.content));
+               var github = A2(getLink,links,0);
+               return A2($Html.div,
+               _U.list([]),
+               _U.list([A2($Html.a,
+               _U.list([iconStyle,$Html$Attributes.href(github)]),
+               _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-github fa-3x")]),_U.list([]))]))]));
+            } else return A2($Html.div,
+            _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "24px"}]))]),
+            _U.list([$Html.text(model.content)]));
+   };
    var textContainer = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "paddingTop",_1: "20%"}
                                                       ,{ctor: "_Tuple2",_0: "paddingBottom",_1: "20%"}
                                                       ,{ctor: "_Tuple2",_0: "text-align",_1: "center"}
@@ -34,15 +70,15 @@ Elm.Jbern16.make = function (_elm) {
       _U.list([A2($Html.div,
       _U.list([textContainer]),
       _U.list([A2($Html.div,_U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "42px"}]))]),_U.list([$Html.text(model.headline)]))
-              ,A2($Html.div,_U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "24px"}]))]),_U.list([$Html.text(model.content)]))
-              ,A2($Html.div,
-              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "28px"}]))]),
-              _U.list([$Html.text(" ° ° ° ")]))]))]))]));
+              ,A2($Html.div,_U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "28px"}]))]),_U.list([$Html.text(" ° ° ° ")]))
+              ,findContent(model)]))]))]));
    });
    var NoOp = {ctor: "NoOp"};
    var changeID = function (model) {    return _U.eq(model.nextID,2) ? 0 : model.nextID + 1;};
-   var contents = $Array.fromList(_U.list(["Web Developer","List Projects","Github Blog Twitter LinkedIn Email"]));
-   var headlines = $Array.fromList(_U.list(["Jonathan Bernesser","Work","Contact"]));
+   var contents = $Array.fromList(_U.list(["Web Developer"
+                                          ,"github.com/jbern16"
+                                          ,"jbern16@gmail.com, twitter.com/jbern16, https://medium.com/@jBern16, https://www.linkedin.com/in/jonathanbernesser"]));
+   var headlines = $Array.fromList(_U.list(["Jonathan Bernesser"," My Work:","Contact Me:"]));
    var update = F2(function (action,model) {
       var _p0 = action;
       if (_p0.ctor === "NoOp") {
@@ -68,6 +104,9 @@ Elm.Jbern16.make = function (_elm) {
                                 ,backgroundColors: backgroundColors
                                 ,backgroundStyle: backgroundStyle
                                 ,textContainer: textContainer
+                                ,iconStyle: iconStyle
+                                ,getLink: getLink
+                                ,findContent: findContent
                                 ,view: view
                                 ,main: main};
 };
