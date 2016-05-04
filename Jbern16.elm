@@ -74,9 +74,12 @@ iconStyle =
   style [ ( "padding", "10px")
         , ( "color", "black" )
         ]
+sepStyle =
+  style [ ( "font-size", "28px" ) ]
 
 getLink content index =
   withDefault "" ( get index content )
+
 
 findContent model =
   if model.headline == "Contact Me:" then
@@ -87,7 +90,7 @@ findContent model =
       medium   = getLink links 2
       linkedIn = getLink links 3
     in
-      div [ ]
+      div  [ ]
         [ a [ iconStyle, href email    ]
           [ i [ class "fa fa-envelope fa-3x" ] [ ] ]
         , a [ iconStyle, href twitter  ]
@@ -103,13 +106,20 @@ findContent model =
       links = fromList ( split ","  model.content )
       github = getLink links 0
     in
-      div [ ]
+      div  [ ]
         [ a [ iconStyle, href github ]
           [ i [ class "fa fa-github fa-3x" ] [ ] ]
         ]
   else
-    div [ style [ ("font-size", "24px") ] ] [ text model.content ]
+    div  [ style [ ("font-size", "24px") ] ] [ text model.content ]
 
+findSep model =
+  if model.headline == "Contact Me:" then
+    span [ sepStyle ] [ text " ° "]
+  else if model.headline == "My Work:" then
+    span [ sepStyle ] [ text " ° ° "]
+  else
+    span [ sepStyle ] [ text " ° ° ° "]
 
 view address model =
   let
@@ -119,8 +129,8 @@ view address model =
       div [ onClick address NextClick ] [
         div [ textContainer ] [
           div [ style [ ("font-size", "42px") ] ] [ text model.headline ]
-        , div [ style [ ("font-size", "28px") ] ] [ text " ° ° ° " ]
-        , findContent model
+          , findSep model
+          , findContent model
         ]
       ]
     ]
