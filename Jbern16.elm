@@ -36,11 +36,9 @@ changeID model =
   else
     model.nextID + 1
 
-
 type Action
   = NoOp
   | NextClick
-
 
 update action model =
   case action of
