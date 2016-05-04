@@ -10416,11 +10416,11 @@ Elm.Jbern16.make = function (_elm) {
       _U.list([A2($Html$Events.onClick,address,NextClick)]),
       _U.list([A2($Html.div,
               _U.list([$Html$Attributes.$class("small-5 small-centered columns"),textContainer]),
-              _U.list([A2($Html.h1,_U.list([headlineStyle]),_U.list([$Html.text(model.headline)]))
+              _U.list([A2($Html.p,_U.list([headlineStyle]),_U.list([$Html.text(model.headline)]))
                       ,findSep(model.headline)
                       ,findContent(model)
                       ,A2($Html.br,_U.list([]),_U.list([]))
-                      ,A2($Html.h4,
+                      ,A2($Html.p,
                       _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "24px"}]))]),
                       _U.list([$Html.text(model.flavorText)]))]))
               ,footer]))]));

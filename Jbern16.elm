@@ -182,11 +182,11 @@ view address model =
   div [ backgroundStyle model.backgroundColor ] [
     div [ onClick address NextClick ] [
       div [ class "small-5 small-centered columns", textContainer ] [
-        h1 [ headlineStyle ] [ text model.headline ]
+        p [ headlineStyle ] [ text model.headline ]
         , findSep model.headline
         , findContent model
         , br [ ] [ ]
-        , h4  [ style [ ("font-size", "24px") ] ] [ text model.flavorText ]
+        , p  [ style [ ("font-size", "24px") ] ] [ text model.flavorText ]
       ]
     , footer
     ]
