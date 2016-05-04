@@ -81,7 +81,7 @@ backgroundStyle : String -> Html.Attribute
 backgroundStyle hex  =
   style [ ( "backgroundColor", hex)
         , ( "height", "100vh")
-        , ( "width", "100%")
+        , ( "width", "195vh")
         , ( "cursor", "e-resize")
         ]
 
@@ -171,7 +171,7 @@ footer =
                    ]
     linkStyle = style [ ( "position", "absolute" )
                       , ( "bottom", "35%")
-                      , ( "left", "42.1%")
+                      , ( "left", "40.8%")
                       , ( "color", "#45503B")
                       , ( "font-size", "14px")
                       ]

@@ -10342,7 +10342,7 @@ Elm.Jbern16.make = function (_elm) {
       var source = "https://github.com/Jbern16/jbern16.github.io";
       var linkStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "position",_1: "absolute"}
                                                      ,{ctor: "_Tuple2",_0: "bottom",_1: "35%"}
-                                                     ,{ctor: "_Tuple2",_0: "left",_1: "42.1%"}
+                                                     ,{ctor: "_Tuple2",_0: "left",_1: "40.8%"}
                                                      ,{ctor: "_Tuple2",_0: "color",_1: "#45503B"}
                                                      ,{ctor: "_Tuple2",_0: "font-size",_1: "14px"}]));
       var style$ = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "position",_1: "absolute"}
@@ -10409,7 +10409,7 @@ Elm.Jbern16.make = function (_elm) {
    var backgroundStyle = function (hex) {
       return $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "backgroundColor",_1: hex}
                                             ,{ctor: "_Tuple2",_0: "height",_1: "100vh"}
-                                            ,{ctor: "_Tuple2",_0: "width",_1: "100%"}
+                                            ,{ctor: "_Tuple2",_0: "width",_1: "195vh"}
                                             ,{ctor: "_Tuple2",_0: "cursor",_1: "e-resize"}]));
    };
    var NextClick = {ctor: "NextClick"};
