@@ -10361,7 +10361,7 @@ Elm.Jbern16.make = function (_elm) {
                     ,A2($Html.a,
                     _U.list([iconStyle,$Html$Attributes.href(linkedIn)]),
                     _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-linkedin fa-3x")]),_U.list([]))]))]));
-         } else if (_U.eq(model.headline," My Work:")) {
+         } else if (_U.eq(model.headline,"My Work:")) {
                var links = $Array.fromList(A2($String.split,",",model.content));
                var github = A2(getLink,links,0);
                return A2($Html.div,
@@ -10397,9 +10397,9 @@ Elm.Jbern16.make = function (_elm) {
    var NoOp = {ctor: "NoOp"};
    var changeID = function (model) {    return _U.eq(model.nextID,2) ? 0 : model.nextID + 1;};
    var contents = $Array.fromList(_U.list(["Web Developer"
-                                          ,"github.com/jbern16"
-                                          ,"jbern16@gmail.com, twitter.com/jbern16, https://medium.com/@jBern16, https://www.linkedin.com/in/jonathanbernesser"]));
-   var headlines = $Array.fromList(_U.list(["Jonathan Bernesser"," My Work:","Contact Me:"]));
+                                          ,"https://github.com/jbern16"
+                                          ,"mailto:jbern16@gmail.com, https://twitter.com/jbern16, https://medium.com/@jBern16, https://www.linkedin.com/in/jonathanbernesser"]));
+   var headlines = $Array.fromList(_U.list(["Jonathan Bernesser","My Work:","Contact Me:"]));
    var update = F2(function (action,model) {
       var _p0 = action;
       if (_p0.ctor === "NoOp") {

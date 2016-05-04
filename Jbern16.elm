@@ -25,10 +25,10 @@ init =
 --UPDATE
 
 headlines =
-  fromList [ "Jonathan Bernesser", " My Work:", "Contact Me:" ]
+  fromList [ "Jonathan Bernesser", "My Work:", "Contact Me:" ]
 
 contents =
-  fromList [ "Web Developer", "https://github.com/jbern16", "https://jbern16@gmail.com, https://twitter.com/jbern16, https://medium.com/@jBern16, https://www.linkedin.com/in/jonathanbernesser" ]
+  fromList [ "Web Developer", "https://github.com/jbern16", "mailto:jbern16@gmail.com, https://twitter.com/jbern16, https://medium.com/@jBern16, https://www.linkedin.com/in/jonathanbernesser" ]
 
 changeID model =
   if model.nextID == 2 then
