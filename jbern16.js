@@ -10384,7 +10384,9 @@ Elm.Jbern16.make = function (_elm) {
                                                       ,{ctor: "_Tuple2",_0: "text-align",_1: "center"}
                                                       ,{ctor: "_Tuple2",_0: "font-family",_1: "Montserrat, sans-serif"}]));
    var backgroundStyle = function (hex) {
-      return $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "backgroundColor",_1: hex},{ctor: "_Tuple2",_0: "height",_1: "100vh"}]));
+      return $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "backgroundColor",_1: hex}
+                                            ,{ctor: "_Tuple2",_0: "height",_1: "100vh"}
+                                            ,{ctor: "_Tuple2",_0: "cursor",_1: "e-resize"}]));
    };
    var NextClick = {ctor: "NextClick"};
    var view = F2(function (address,model) {

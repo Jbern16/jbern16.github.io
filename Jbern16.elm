@@ -73,6 +73,7 @@ backgroundStyle : String -> Html.Attribute
 backgroundStyle hex  =
   style [ ( "backgroundColor", hex)
         , ( "height", "100vh")
+        , ( "cursor", "e-resize")
         ]
 
 textContainer : Html.Attribute
