@@ -10342,7 +10342,7 @@ Elm.Jbern16.make = function (_elm) {
       var source = "https://github.com/Jbern16/jbern16.github.io";
       var linkStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "position",_1: "absolute"}
                                                      ,{ctor: "_Tuple2",_0: "bottom",_1: "35%"}
-                                                     ,{ctor: "_Tuple2",_0: "left",_1: "42.1%"}
+                                                     ,{ctor: "_Tuple2",_0: "left",_1: "40.8%"}
                                                      ,{ctor: "_Tuple2",_0: "color",_1: "#45503B"}
                                                      ,{ctor: "_Tuple2",_0: "font-size",_1: "14px"}]));
       var style$ = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "position",_1: "absolute"}
@@ -10357,11 +10357,7 @@ Elm.Jbern16.make = function (_elm) {
    var getLink = F2(function (content,index) {    return A2($Maybe.withDefault,"",A2($Array.get,index,content));});
    var headlineStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "46px"}
                                                       ,{ctor: "_Tuple2",_0: "border-style",_1: "solid"}
-                                                      ,{ctor: "_Tuple2",_0: "border-width",_1: "3px"}
-                                                      ,{ctor: "_Tuple2",_0: "width",_1: "38%"}
-                                                      ,{ctor: "_Tuple2",_0: "position",_1: "absolute"}
-                                                      ,{ctor: "_Tuple2",_0: "right",_1: "29.5%"}
-                                                      ,{ctor: "_Tuple2",_0: "top",_1: "22%"}]));
+                                                      ,{ctor: "_Tuple2",_0: "border-width",_1: "3px"}]));
    var sepStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "28px"}]));
    var findSep = function (headline) {
       return _U.eq(headline,"Contact Me") ? A2($Html.span,_U.list([sepStyle]),_U.list([$Html.text(" ° ")])) : _U.eq(headline,"My Work") ? A2($Html.span,
@@ -10402,14 +10398,14 @@ Elm.Jbern16.make = function (_elm) {
             _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "24px"}]))]),
             _U.list([$Html.text(model.content)]));
    };
-   var textContainer = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "paddingTop",_1: "20%"}
+   var textContainer = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "paddingTop",_1: "15%"}
                                                       ,{ctor: "_Tuple2",_0: "paddingBottom",_1: "20%"}
-                                                      ,{ctor: "_Tuple2",_0: "text-align",_1: "center"}
-                                                      ,{ctor: "_Tuple2",_0: "font-family",_1: "Montserrat, sans-serif"}]));
+                                                      ,{ctor: "_Tuple2",_0: "text-align",_1: "center"}]));
    var backgroundStyle = function (hex) {
       return $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "backgroundColor",_1: hex}
-                                            ,{ctor: "_Tuple2",_0: "height",_1: "100vh"}
-                                            ,{ctor: "_Tuple2",_0: "width",_1: "100%"}
+                                            ,{ctor: "_Tuple2",_0: "min-height",_1: "100vh"}
+                                            ,{ctor: "_Tuple2",_0: "background-position",_1: "center"}
+                                            ,{ctor: "_Tuple2",_0: "background-size",_1: "cover"}
                                             ,{ctor: "_Tuple2",_0: "cursor",_1: "e-resize"}]));
    };
    var NextClick = {ctor: "NextClick"};
@@ -10419,12 +10415,15 @@ Elm.Jbern16.make = function (_elm) {
       _U.list([A2($Html.div,
       _U.list([A2($Html$Events.onClick,address,NextClick)]),
       _U.list([A2($Html.div,
-      _U.list([textContainer]),
-      _U.list([A2($Html.h1,_U.list([headlineStyle]),_U.list([$Html.text(model.headline)]))
-              ,findSep(model.headline)
-              ,findContent(model)
-              ,A2($Html.h4,_U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "24px"}]))]),_U.list([$Html.text(model.flavorText)]))
-              ,footer]))]))]));
+              _U.list([$Html$Attributes.$class("small-3 small-centered columns"),textContainer]),
+              _U.list([A2($Html.h1,_U.list([headlineStyle]),_U.list([$Html.text(model.headline)]))
+                      ,findSep(model.headline)
+                      ,findContent(model)
+                      ,A2($Html.br,_U.list([]),_U.list([]))
+                      ,A2($Html.h4,
+                      _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "24px"}]))]),
+                      _U.list([$Html.text(model.flavorText)]))]))
+              ,footer]))]));
    });
    var NoOp = {ctor: "NoOp"};
    var changeID = function (model) {    return _U.eq(model.nextID,2) ? 0 : model.nextID + 1;};

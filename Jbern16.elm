@@ -80,17 +80,17 @@ update action model =
 backgroundStyle : String -> Html.Attribute
 backgroundStyle hex  =
   style [ ( "backgroundColor", hex)
-        , ( "height", "100vh")
-        , ( "width", "195vh")
+        , ( "min-height", "100vh")
+        , ( "background-position", "center")
+        , ( "background-size", "cover")
         , ( "cursor", "e-resize")
         ]
 
 textContainer : Html.Attribute
 textContainer =
-  style [ ( "paddingTop", "20%")
+  style [ ( "paddingTop", "13%")
         , ( "paddingBottom", "20%")
         , ( "text-align", "center")
-        , ( "font-family", "Montserrat, sans-serif")
         ]
 
 iconStyle : Html.Attribute
@@ -108,10 +108,6 @@ headlineStyle =
   style [ ( "font-size", "46px")
         , ( "border-style", "solid")
         , ( "border-width", "3px")
-        , ( "width", "38%")
-        , ( "position", "absolute")
-        , ( "right", "29.5%")
-        , ( "top", "22%")
         ]
 
 getLink : Array String -> Int -> String
@@ -185,13 +181,14 @@ view : Signal.Address Action -> Model -> Html
 view address model =
   div [ backgroundStyle model.backgroundColor ] [
     div [ onClick address NextClick ] [
-      div [ textContainer ] [
+      div [ class "small-5 small-centered columns", textContainer ] [
         h1 [ headlineStyle ] [ text model.headline ]
         , findSep model.headline
         , findContent model
+        , br [ ] [ ]
         , h4  [ style [ ("font-size", "24px") ] ] [ text model.flavorText ]
-        , footer
       ]
+    , footer
     ]
   ]
 
