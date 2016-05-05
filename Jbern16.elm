@@ -44,7 +44,7 @@ flavorTexts =
 
 backgroundColors : Array String
 backgroundColors =
-  fromList [ "#EBF5DF", "#DBFEB8", "#99D5C9" ]
+  fromList [ "#EBF5DF", "#B3E2A7", "#99D5C9" ]
 
 changeID : Model -> Int
 changeID model =
