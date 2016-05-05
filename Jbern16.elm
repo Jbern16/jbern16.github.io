@@ -6,6 +6,7 @@ import Html.Attributes exposing (..)
 import Array exposing (fromList, get, Array )
 import StartApp.Simple as StartApp
 import Maybe exposing (withDefault)
+import Graphics.Collage exposing (circle)
 import String exposing (split)
 
 --MODEL
@@ -178,6 +179,22 @@ footer =
       a [ linkStyle, href source ] [ text "Made with Elm. Hosted with love" ]
     ]
 
+
+corner model =
+  let
+    next = (changeID model) - 1
+    nextHex = withDefault "#99D5C9" ( get next backgroundColors )
+  in
+    style [ ( "width", "0" )
+          , ( "height", "0" )
+          , ( "border-style", "solid")
+          , ( "border-width", "0 100px 100px 0")
+          , ( "border-color", "transparent " ++ nextHex ++ " transparent transparent ")
+          , ( "position", "fixed" )
+          , ( "right", "0%")
+          , ( "top", "0%")
+          ]
+
 view : Signal.Address Action -> Model -> Html
 view address model =
   div [ backgroundStyle model.backgroundColor ] [
@@ -190,6 +207,7 @@ view address model =
         , p  [ style [ ("font-size", "24px") ] ] [ text model.flavorText ]
       ]
     ]
+    , span [ corner model ] [ ]
     , footer
   ]
 

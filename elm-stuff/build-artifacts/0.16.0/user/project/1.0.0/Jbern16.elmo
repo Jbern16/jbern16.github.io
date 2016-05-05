@@ -88,6 +88,23 @@ Elm.Jbern16.make = function (_elm) {
                                             ,{ctor: "_Tuple2",_0: "cursor",_1: "e-resize"}]));
    };
    var NextClick = {ctor: "NextClick"};
+   var NoOp = {ctor: "NoOp"};
+   var changeID = function (model) {    return _U.eq(model.nextID,2) ? 0 : model.nextID + 1;};
+   var backgroundColors = $Array.fromList(_U.list(["#EBF5DF","#DBFEB8","#99D5C9"]));
+   var corner = function (model) {
+      var next = changeID(model) - 1;
+      var nextHex = A2($Maybe.withDefault,"#99D5C9",A2($Array.get,next,backgroundColors));
+      return $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "width",_1: "0"}
+                                            ,{ctor: "_Tuple2",_0: "height",_1: "0"}
+                                            ,{ctor: "_Tuple2",_0: "border-style",_1: "solid"}
+                                            ,{ctor: "_Tuple2",_0: "border-width",_1: "0 100px 100px 0"}
+                                            ,{ctor: "_Tuple2"
+                                             ,_0: "border-color"
+                                             ,_1: A2($Basics._op["++"],"transparent ",A2($Basics._op["++"],nextHex," transparent transparent "))}
+                                            ,{ctor: "_Tuple2",_0: "position",_1: "fixed"}
+                                            ,{ctor: "_Tuple2",_0: "right",_1: "0%"}
+                                            ,{ctor: "_Tuple2",_0: "top",_1: "0%"}]));
+   };
    var view = F2(function (address,model) {
       return A2($Html.div,
       _U.list([backgroundStyle(model.backgroundColor)]),
@@ -102,11 +119,9 @@ Elm.Jbern16.make = function (_elm) {
                       ,A2($Html.p,
                       _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "24px"}]))]),
                       _U.list([$Html.text(model.flavorText)]))]))]))
+              ,A2($Html.span,_U.list([corner(model)]),_U.list([]))
               ,footer]));
    });
-   var NoOp = {ctor: "NoOp"};
-   var changeID = function (model) {    return _U.eq(model.nextID,2) ? 0 : model.nextID + 1;};
-   var backgroundColors = $Array.fromList(_U.list(["#EBF5DF","#DBFEB8","#99D5C9"]));
    var flavorTexts = $Array.fromList(_U.list(["","Currently enjoying Rails, Ruby, Elm, JS",""]));
    var contents = $Array.fromList(_U.list(["New York Based Web Developer"
                                           ,"https://github.com/jbern16, https://medium.com/@jBern16"
@@ -147,6 +162,7 @@ Elm.Jbern16.make = function (_elm) {
                                 ,findContent: findContent
                                 ,findSep: findSep
                                 ,footer: footer
+                                ,corner: corner
                                 ,view: view
                                 ,main: main};
 };
