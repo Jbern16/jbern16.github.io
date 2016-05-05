@@ -81,6 +81,7 @@ backgroundStyle : String -> Html.Attribute
 backgroundStyle hex  =
   style [ ( "backgroundColor", hex)
         , ( "height", "100%")
+        , ( "min-height", "100vh")
         , ( "background-position", "center")
         , ( "background-size", "cover")
         , ( "cursor", "e-resize")
