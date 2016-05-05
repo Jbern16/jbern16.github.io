@@ -39,7 +39,7 @@ contents =
 
 flavorTexts : Array String
 flavorTexts =
-  fromList [ "", "Currently enjoying Rails, Ruby, Elm, and JS", "" ]
+  fromList [ "", "Currently enjoying Rails, Ruby, Elm, JS", "" ]
 
 backgroundColors : Array String
 backgroundColors =
@@ -159,17 +159,18 @@ findSep headline =
 
 footer =
   let
-    style' = style [ ( "position" , "absolute")
+    style' = style [ ( "position" , "fixed")
+                   , ( "text-align", "center")
                    , ( "background-color", "#E9F1F7")
                    , ( "height", "100px" )
                    , ( "width", "100%")
                    , ( "bottom", "0%")
                    ]
-    linkStyle = style [ ( "position", "absolute" )
-                      , ( "bottom", "35%")
-                      , ( "left", "40.8%")
-                      , ( "color", "#45503B")
+
+    linkStyle = style [ ( "color", "#45503B")
                       , ( "font-size", "14px")
+                      , ( "position", "relative")
+                      , ( "top", "30%")
                       ]
     source = "https://github.com/Jbern16/jbern16.github.io"
   in
@@ -188,8 +189,8 @@ view address model =
         , br [ ] [ ]
         , p  [ style [ ("font-size", "24px") ] ] [ text model.flavorText ]
       ]
-    , footer
     ]
+    , footer
   ]
 
 main : Signal Html
