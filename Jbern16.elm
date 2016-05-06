@@ -128,9 +128,9 @@ findContent model =
         [ a [ iconStyle, href email    ]
           [ i [ class "fa fa-envelope fa-3x" ] [ ] ]
         , a [ iconStyle, href twitter  ]
-          [ i [ class "fa fa-twitter fa-3x"  ] [ ] ]
+          [ i [ class "fa fa-twitter-square fa-3x"  ] [ ] ]
         , a [ iconStyle, href linkedIn ]
-          [ i [ class "fa fa-linkedin fa-3x" ] [ ] ]
+          [ i [ class "fa fa-linkedin-square fa-3x" ] [ ] ]
         ]
 
   else if model.headline == "My Work" then
@@ -141,7 +141,7 @@ findContent model =
     in
       div  [ ]
         [ a [ iconStyle, href github ]
-          [ i [ class "fa fa-github fa-3x" ] [ ] ]
+          [ i [ class "fa fa-github-square fa-3x" ] [ ] ]
         , a [ iconStyle, href medium   ]
           [ i [ class "fa fa-medium fa-3x"   ] [ ] ]
         ]
@@ -188,7 +188,7 @@ corner model =
     style [ ( "width", "0" )
           , ( "height", "0" )
           , ( "border-style", "solid")
-          , ( "border-width", "0 100px 100px 0")
+          , ( "border-width", "0 200px 200px 0")
           , ( "border-color", "transparent " ++ nextHex ++ " transparent transparent ")
           , ( "position", "fixed" )
           , ( "right", "0%")
@@ -202,13 +202,15 @@ view address model =
       div [ class "small-5 small-centered columns", textContainer ] [
         p [ headlineStyle ] [ text model.headline ]
         , findSep model.headline
-        , findContent model
-        , br [ ] [ ]
-        , p  [ style [ ("font-size", "24px") ] ] [ text model.flavorText ]
+        , div [ style [ ("font-family", "Droid Sans Mono" ) ] ] [
+          findContent model
+          , br [ ] [ ]
+          , p  [ style [ ("font-size", "24px") ] ] [ text model.flavorText ]
+        ]
       ]
-    ]
     , span [ corner model ] [ ]
     , footer
+    ]
   ]
 
 main : Signal Html

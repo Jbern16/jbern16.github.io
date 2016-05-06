@@ -10378,10 +10378,10 @@ Elm.Jbern16.make = function (_elm) {
                     _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-envelope fa-3x")]),_U.list([]))]))
                     ,A2($Html.a,
                     _U.list([iconStyle,$Html$Attributes.href(twitter)]),
-                    _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-twitter fa-3x")]),_U.list([]))]))
+                    _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-twitter-square fa-3x")]),_U.list([]))]))
                     ,A2($Html.a,
                     _U.list([iconStyle,$Html$Attributes.href(linkedIn)]),
-                    _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-linkedin fa-3x")]),_U.list([]))]))]));
+                    _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-linkedin-square fa-3x")]),_U.list([]))]))]));
          } else if (_U.eq(model.headline,"My Work")) {
                var links = $Array.fromList(A2($String.split,",",model.content));
                var github = A2(getLink,links,0);
@@ -10390,7 +10390,7 @@ Elm.Jbern16.make = function (_elm) {
                _U.list([]),
                _U.list([A2($Html.a,
                        _U.list([iconStyle,$Html$Attributes.href(github)]),
-                       _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-github fa-3x")]),_U.list([]))]))
+                       _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-github-square fa-3x")]),_U.list([]))]))
                        ,A2($Html.a,
                        _U.list([iconStyle,$Html$Attributes.href(medium)]),
                        _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-medium fa-3x")]),_U.list([]))]))]));
@@ -10418,7 +10418,7 @@ Elm.Jbern16.make = function (_elm) {
       return $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "width",_1: "0"}
                                             ,{ctor: "_Tuple2",_0: "height",_1: "0"}
                                             ,{ctor: "_Tuple2",_0: "border-style",_1: "solid"}
-                                            ,{ctor: "_Tuple2",_0: "border-width",_1: "0 100px 100px 0"}
+                                            ,{ctor: "_Tuple2",_0: "border-width",_1: "0 200px 200px 0"}
                                             ,{ctor: "_Tuple2"
                                              ,_0: "border-color"
                                              ,_1: A2($Basics._op["++"],"transparent ",A2($Basics._op["++"],nextHex," transparent transparent "))}
@@ -10430,18 +10430,20 @@ Elm.Jbern16.make = function (_elm) {
       return A2($Html.div,
       _U.list([backgroundStyle(model.backgroundColor)]),
       _U.list([A2($Html.div,
-              _U.list([A2($Html$Events.onClick,address,NextClick)]),
-              _U.list([A2($Html.div,
+      _U.list([A2($Html$Events.onClick,address,NextClick)]),
+      _U.list([A2($Html.div,
               _U.list([$Html$Attributes.$class("small-5 small-centered columns"),textContainer]),
               _U.list([A2($Html.p,_U.list([headlineStyle]),_U.list([$Html.text(model.headline)]))
                       ,findSep(model.headline)
-                      ,findContent(model)
-                      ,A2($Html.br,_U.list([]),_U.list([]))
-                      ,A2($Html.p,
-                      _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "24px"}]))]),
-                      _U.list([$Html.text(model.flavorText)]))]))]))
+                      ,A2($Html.div,
+                      _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-family",_1: "Droid Sans Mono"}]))]),
+                      _U.list([findContent(model)
+                              ,A2($Html.br,_U.list([]),_U.list([]))
+                              ,A2($Html.p,
+                              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "24px"}]))]),
+                              _U.list([$Html.text(model.flavorText)]))]))]))
               ,A2($Html.span,_U.list([corner(model)]),_U.list([]))
-              ,footer]));
+              ,footer]))]));
    });
    var flavorTexts = $Array.fromList(_U.list(["","Currently enjoying Rails, Ruby, Elm, JS",""]));
    var contents = $Array.fromList(_U.list(["New York Based Web Developer"
