@@ -106,7 +106,8 @@ sepStyle =
 
 headlineStyle : Html.Attribute
 headlineStyle =
-  style [ ( "font-size", "46px")
+  style [ ( "font-size", "48px")
+        , ("font-family", "Montserrat, sans-serif")
         , ( "border-style", "solid")
         , ( "border-width", "3px")
         ]
@@ -166,6 +167,7 @@ footer =
                    , ( "height", "100px" )
                    , ( "width", "100%")
                    , ( "bottom", "0%")
+                   , ( "font-family", "Karla, sans-serif")
                    ]
 
     linkStyle = style [ ( "color", "#45503B")
@@ -188,7 +190,7 @@ corner model =
     style [ ( "width", "0" )
           , ( "height", "0" )
           , ( "border-style", "solid")
-          , ( "border-width", "0 200px 200px 0")
+          , ( "border-width", "0 375px 375px 0")
           , ( "border-color", "transparent " ++ nextHex ++ " transparent transparent ")
           , ( "position", "fixed" )
           , ( "right", "0%")
@@ -199,8 +201,8 @@ view : Signal.Address Action -> Model -> Html
 view address model =
   div [ backgroundStyle model.backgroundColor ] [
     div [ onClick address NextClick ] [
-      div [ class "small-5 small-centered columns", textContainer ] [
-        p [ headlineStyle ] [ text model.headline ]
+      div [ class "small-6 small-centered columns", textContainer ] [
+        h1 [ headlineStyle ] [ text model.headline ]
         , findSep model.headline
         , div [ style [ ("font-family", "Droid Sans Mono" ) ] ] [
           findContent model

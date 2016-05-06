@@ -10418,7 +10418,7 @@ Elm.Jbern16.make = function (_elm) {
       return $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "width",_1: "0"}
                                             ,{ctor: "_Tuple2",_0: "height",_1: "0"}
                                             ,{ctor: "_Tuple2",_0: "border-style",_1: "solid"}
-                                            ,{ctor: "_Tuple2",_0: "border-width",_1: "0 175px 175px 0"}
+                                            ,{ctor: "_Tuple2",_0: "border-width",_1: "0 400px 400px 0"}
                                             ,{ctor: "_Tuple2"
                                              ,_0: "border-color"
                                              ,_1: A2($Basics._op["++"],"transparent ",A2($Basics._op["++"],nextHex," transparent transparent "))}
@@ -10433,7 +10433,7 @@ Elm.Jbern16.make = function (_elm) {
       _U.list([A2($Html$Events.onClick,address,NextClick)]),
       _U.list([A2($Html.div,
               _U.list([$Html$Attributes.$class("small-5 small-centered columns"),textContainer]),
-              _U.list([A2($Html.p,_U.list([headlineStyle]),_U.list([$Html.text(model.headline)]))
+              _U.list([A2($Html.h1,_U.list([headlineStyle]),_U.list([$Html.text(model.headline)]))
                       ,findSep(model.headline)
                       ,A2($Html.div,
                       _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-family",_1: "Droid Sans Mono"}]))]),

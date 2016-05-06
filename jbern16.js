@@ -10349,13 +10349,15 @@ Elm.Jbern16.make = function (_elm) {
                                                   ,{ctor: "_Tuple2",_0: "background-color",_1: "#E9F1F7"}
                                                   ,{ctor: "_Tuple2",_0: "height",_1: "100px"}
                                                   ,{ctor: "_Tuple2",_0: "width",_1: "100%"}
-                                                  ,{ctor: "_Tuple2",_0: "bottom",_1: "0%"}]));
+                                                  ,{ctor: "_Tuple2",_0: "bottom",_1: "0%"}
+                                                  ,{ctor: "_Tuple2",_0: "font-family",_1: "Karla, sans-serif"}]));
       return A2($Html.div,
       _U.list([style$]),
       _U.list([A2($Html.a,_U.list([linkStyle,$Html$Attributes.href(source)]),_U.list([$Html.text("Made with Elm. Hosted with love")]))]));
    }();
    var getLink = F2(function (content,index) {    return A2($Maybe.withDefault,"",A2($Array.get,index,content));});
-   var headlineStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "46px"}
+   var headlineStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "48px"}
+                                                      ,{ctor: "_Tuple2",_0: "font-family",_1: "Montserrat, sans-serif"}
                                                       ,{ctor: "_Tuple2",_0: "border-style",_1: "solid"}
                                                       ,{ctor: "_Tuple2",_0: "border-width",_1: "3px"}]));
    var sepStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "28px"}]));
@@ -10418,7 +10420,7 @@ Elm.Jbern16.make = function (_elm) {
       return $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "width",_1: "0"}
                                             ,{ctor: "_Tuple2",_0: "height",_1: "0"}
                                             ,{ctor: "_Tuple2",_0: "border-style",_1: "solid"}
-                                            ,{ctor: "_Tuple2",_0: "border-width",_1: "0 200px 200px 0"}
+                                            ,{ctor: "_Tuple2",_0: "border-width",_1: "0 375px 375px 0"}
                                             ,{ctor: "_Tuple2"
                                              ,_0: "border-color"
                                              ,_1: A2($Basics._op["++"],"transparent ",A2($Basics._op["++"],nextHex," transparent transparent "))}
@@ -10432,8 +10434,8 @@ Elm.Jbern16.make = function (_elm) {
       _U.list([A2($Html.div,
       _U.list([A2($Html$Events.onClick,address,NextClick)]),
       _U.list([A2($Html.div,
-              _U.list([$Html$Attributes.$class("small-5 small-centered columns"),textContainer]),
-              _U.list([A2($Html.p,_U.list([headlineStyle]),_U.list([$Html.text(model.headline)]))
+              _U.list([$Html$Attributes.$class("small-6 small-centered columns"),textContainer]),
+              _U.list([A2($Html.h1,_U.list([headlineStyle]),_U.list([$Html.text(model.headline)]))
                       ,findSep(model.headline)
                       ,A2($Html.div,
                       _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-family",_1: "Droid Sans Mono"}]))]),
