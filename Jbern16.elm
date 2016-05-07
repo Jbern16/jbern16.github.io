@@ -94,6 +94,15 @@ textContainer =
         , ( "text-align", "center")
         ]
 
+border =
+  style [ ( "border-style", "double")
+        , ( "border-width", "6px")
+        , ( "paddingTop", "30px")
+        , ( "paddingBottom", "10px")
+        , ( "border-radius", "3px")
+        ]
+
+
 iconStyle : Html.Attribute
 iconStyle =
   style [ ( "padding", "10px")
@@ -102,14 +111,12 @@ iconStyle =
 
 sepStyle : Html.Attribute
 sepStyle =
-  style [ ( "font-size", "28px" ) ]
+  style [ ( "font-size", "32px" ) ]
 
 headlineStyle : Html.Attribute
 headlineStyle =
   style [ ( "font-size", "48px")
         , ("font-family", "Montserrat, sans-serif")
-        , ( "border-style", "solid")
-        , ( "border-width", "3px")
         ]
 
 getLink : Array String -> Int -> String
@@ -202,17 +209,19 @@ view address model =
   div [ backgroundStyle model.backgroundColor ] [
     div [ onClick address NextClick ] [
       div [ class "small-6 small-centered columns", textContainer ] [
-        h1 [ headlineStyle ] [ text model.headline ]
-        , findSep model.headline
-        , div [ style [ ("font-family", "Droid Sans Mono" ) ] ] [
-          findContent model
+        div [ border ] [
+          h1 [ headlineStyle ] [ text model.headline ]
+          , findSep model.headline
+          , div [ style [ ("font-family", "Droid Sans Mono" ) ] ] [
+            findContent model
           , br [ ] [ ]
           , p  [ style [ ("font-size", "24px") ] ] [ text model.flavorText ]
+          ]
         ]
       ]
-    , span [ corner model ] [ ]
-    , footer
     ]
+  , span [ corner model ] [ ]
+  , footer
   ]
 
 main : Signal Html

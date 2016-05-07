@@ -10349,15 +10349,15 @@ Elm.Jbern16.make = function (_elm) {
                                                   ,{ctor: "_Tuple2",_0: "background-color",_1: "#E9F1F7"}
                                                   ,{ctor: "_Tuple2",_0: "height",_1: "100px"}
                                                   ,{ctor: "_Tuple2",_0: "width",_1: "100%"}
-                                                  ,{ctor: "_Tuple2",_0: "bottom",_1: "0%"}]));
+                                                  ,{ctor: "_Tuple2",_0: "bottom",_1: "0%"}
+                                                  ,{ctor: "_Tuple2",_0: "font-family",_1: "Karla, sans-serif"}]));
       return A2($Html.div,
       _U.list([style$]),
       _U.list([A2($Html.a,_U.list([linkStyle,$Html$Attributes.href(source)]),_U.list([$Html.text("Made with Elm. Hosted with love")]))]));
    }();
    var getLink = F2(function (content,index) {    return A2($Maybe.withDefault,"",A2($Array.get,index,content));});
-   var headlineStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "46px"}
-                                                      ,{ctor: "_Tuple2",_0: "border-style",_1: "solid"}
-                                                      ,{ctor: "_Tuple2",_0: "border-width",_1: "3px"}]));
+   var headlineStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "48px"}
+                                                      ,{ctor: "_Tuple2",_0: "font-family",_1: "Montserrat, sans-serif"}]));
    var sepStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "28px"}]));
    var findSep = function (headline) {
       return _U.eq(headline,"Contact Me") ? A2($Html.span,_U.list([sepStyle]),_U.list([$Html.text(" ° ")])) : _U.eq(headline,"My Work") ? A2($Html.span,
@@ -10398,6 +10398,10 @@ Elm.Jbern16.make = function (_elm) {
             _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "24px"}]))]),
             _U.list([$Html.text(model.content)]));
    };
+   var border = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "border-style",_1: "solid"}
+                                               ,{ctor: "_Tuple2",_0: "border-width",_1: "3px"}
+                                               ,{ctor: "_Tuple2",_0: "paddingTop",_1: "10px"}
+                                               ,{ctor: "_Tuple2",_0: "paddingBottom",_1: "10px"}]));
    var textContainer = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "paddingTop",_1: "13%"}
                                                       ,{ctor: "_Tuple2",_0: "paddingBottom",_1: "20%"}
                                                       ,{ctor: "_Tuple2",_0: "text-align",_1: "center"}]));
@@ -10418,7 +10422,7 @@ Elm.Jbern16.make = function (_elm) {
       return $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "width",_1: "0"}
                                             ,{ctor: "_Tuple2",_0: "height",_1: "0"}
                                             ,{ctor: "_Tuple2",_0: "border-style",_1: "solid"}
-                                            ,{ctor: "_Tuple2",_0: "border-width",_1: "0 400px 400px 0"}
+                                            ,{ctor: "_Tuple2",_0: "border-width",_1: "0 375px 375px 0"}
                                             ,{ctor: "_Tuple2"
                                              ,_0: "border-color"
                                              ,_1: A2($Basics._op["++"],"transparent ",A2($Basics._op["++"],nextHex," transparent transparent "))}
@@ -10430,9 +10434,11 @@ Elm.Jbern16.make = function (_elm) {
       return A2($Html.div,
       _U.list([backgroundStyle(model.backgroundColor)]),
       _U.list([A2($Html.div,
-      _U.list([A2($Html$Events.onClick,address,NextClick)]),
-      _U.list([A2($Html.div,
-              _U.list([$Html$Attributes.$class("small-5 small-centered columns"),textContainer]),
+              _U.list([A2($Html$Events.onClick,address,NextClick)]),
+              _U.list([A2($Html.div,
+              _U.list([$Html$Attributes.$class("small-6 small-centered columns"),textContainer]),
+              _U.list([A2($Html.div,
+              _U.list([border]),
               _U.list([A2($Html.h1,_U.list([headlineStyle]),_U.list([$Html.text(model.headline)]))
                       ,findSep(model.headline)
                       ,A2($Html.div,
@@ -10441,9 +10447,9 @@ Elm.Jbern16.make = function (_elm) {
                               ,A2($Html.br,_U.list([]),_U.list([]))
                               ,A2($Html.p,
                               _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "24px"}]))]),
-                              _U.list([$Html.text(model.flavorText)]))]))]))
+                              _U.list([$Html.text(model.flavorText)]))]))]))]))]))
               ,A2($Html.span,_U.list([corner(model)]),_U.list([]))
-              ,footer]))]));
+              ,footer]));
    });
    var flavorTexts = $Array.fromList(_U.list(["","Currently enjoying Rails, Ruby, Elm, JS",""]));
    var contents = $Array.fromList(_U.list(["New York Based Web Developer"
@@ -10478,6 +10484,7 @@ Elm.Jbern16.make = function (_elm) {
                                 ,update: update
                                 ,backgroundStyle: backgroundStyle
                                 ,textContainer: textContainer
+                                ,border: border
                                 ,iconStyle: iconStyle
                                 ,sepStyle: sepStyle
                                 ,headlineStyle: headlineStyle
