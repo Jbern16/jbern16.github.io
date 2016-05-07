@@ -100,6 +100,7 @@ border =
         , ( "paddingTop", "30px")
         , ( "paddingBottom", "10px")
         , ( "border-radius", "3px")
+        , ( "box-shadow", "0 4px 8px 0 #888, 0 6px 20px 0 #888")
         ]
 
 

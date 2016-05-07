@@ -10402,7 +10402,8 @@ Elm.Jbern16.make = function (_elm) {
                                                ,{ctor: "_Tuple2",_0: "border-width",_1: "6px"}
                                                ,{ctor: "_Tuple2",_0: "paddingTop",_1: "30px"}
                                                ,{ctor: "_Tuple2",_0: "paddingBottom",_1: "10px"}
-                                               ,{ctor: "_Tuple2",_0: "border-radius",_1: "3px"}]));
+                                               ,{ctor: "_Tuple2",_0: "border-radius",_1: "3px"}
+                                               ,{ctor: "_Tuple2",_0: "box-shadow",_1: "0 4px 8px 0 #888, 0 6px 20px 0 #888"}]));
    var textContainer = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "paddingTop",_1: "13%"}
                                                       ,{ctor: "_Tuple2",_0: "paddingBottom",_1: "20%"}
                                                       ,{ctor: "_Tuple2",_0: "text-align",_1: "center"}]));
