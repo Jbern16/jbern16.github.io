@@ -10398,8 +10398,8 @@ Elm.Jbern16.make = function (_elm) {
             _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "24px"}]))]),
             _U.list([$Html.text(model.content)]));
    };
-   var border = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "border-style",_1: "double"}
-                                               ,{ctor: "_Tuple2",_0: "border-width",_1: "6px"}
+   var border = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "border-style",_1: "solid"}
+                                               ,{ctor: "_Tuple2",_0: "border-width",_1: "4px"}
                                                ,{ctor: "_Tuple2",_0: "paddingTop",_1: "30px"}
                                                ,{ctor: "_Tuple2",_0: "paddingBottom",_1: "10px"}
                                                ,{ctor: "_Tuple2",_0: "border-radius",_1: "3px"}

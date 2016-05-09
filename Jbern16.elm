@@ -95,8 +95,8 @@ textContainer =
         ]
 
 border =
-  style [ ( "border-style", "double")
-        , ( "border-width", "6px")
+  style [ ( "border-style", "solid")
+        , ( "border-width", "4px")
         , ( "paddingTop", "30px")
         , ( "paddingBottom", "10px")
         , ( "border-radius", "3px")

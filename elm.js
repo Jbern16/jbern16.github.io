@@ -10358,7 +10358,7 @@ Elm.Jbern16.make = function (_elm) {
    var getLink = F2(function (content,index) {    return A2($Maybe.withDefault,"",A2($Array.get,index,content));});
    var headlineStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "48px"}
                                                       ,{ctor: "_Tuple2",_0: "font-family",_1: "Montserrat, sans-serif"}]));
-   var sepStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "28px"}]));
+   var sepStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "32px"}]));
    var findSep = function (headline) {
       return _U.eq(headline,"Contact Me") ? A2($Html.span,_U.list([sepStyle]),_U.list([$Html.text(" ° ")])) : _U.eq(headline,"My Work") ? A2($Html.span,
       _U.list([sepStyle]),
@@ -10399,9 +10399,11 @@ Elm.Jbern16.make = function (_elm) {
             _U.list([$Html.text(model.content)]));
    };
    var border = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "border-style",_1: "solid"}
-                                               ,{ctor: "_Tuple2",_0: "border-width",_1: "3px"}
-                                               ,{ctor: "_Tuple2",_0: "paddingTop",_1: "10px"}
-                                               ,{ctor: "_Tuple2",_0: "paddingBottom",_1: "10px"}]));
+                                               ,{ctor: "_Tuple2",_0: "border-width",_1: "4px"}
+                                               ,{ctor: "_Tuple2",_0: "paddingTop",_1: "30px"}
+                                               ,{ctor: "_Tuple2",_0: "paddingBottom",_1: "10px"}
+                                               ,{ctor: "_Tuple2",_0: "border-radius",_1: "3px"}
+                                               ,{ctor: "_Tuple2",_0: "box-shadow",_1: "0 4px 8px 0 #888, 0 6px 20px 0 #888"}]));
    var textContainer = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "paddingTop",_1: "13%"}
                                                       ,{ctor: "_Tuple2",_0: "paddingBottom",_1: "20%"}
                                                       ,{ctor: "_Tuple2",_0: "text-align",_1: "center"}]));
