@@ -24,7 +24,7 @@ init =
   { headline = "Jonathan Bernesser"
   , content = "New York Based Web Developer"
   , flavorText = ""
-  , backgroundColor = "#EBF5DF"
+  , backgroundColor = "#3772FF"
   , nextID = 1
   }
 
@@ -44,7 +44,7 @@ flavorTexts =
 
 backgroundColors : Array String
 backgroundColors =
-  fromList [ "#EBF5DF", "#B3E2A7", "#99D5C9" ]
+  fromList [ "#3772FF", "#1B2021", "#5FBB97" ]
 
 changeID : Model -> Int
 changeID model =
@@ -92,22 +92,24 @@ textContainer =
   style [ ( "paddingTop", "13%")
         , ( "paddingBottom", "20%")
         , ( "text-align", "center")
+        , ( "color", "#E9F1F7")
         ]
 
 border =
   style [ ( "border-style", "solid")
         , ( "border-width", "4px")
+        , ( "border-color", "#E9F1F7")
         , ( "paddingTop", "30px")
         , ( "paddingBottom", "10px")
         , ( "border-radius", "3px")
-        , ( "box-shadow", "0 4px 8px 0 #888, 0 6px 20px 0 #888")
+        , ( "box-shadow", "0 2px 2px 0 #888, 0 2px 2px 0 #888")
         ]
 
 
 iconStyle : Html.Attribute
 iconStyle =
   style [ ( "padding", "10px")
-        , ( "color", "black" )
+        , ( "color", "white" )
         ]
 
 sepStyle : Html.Attribute
