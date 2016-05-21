@@ -49,7 +49,7 @@ Elm.Jbern16.make = function (_elm) {
             var links = $Array.fromList(A2($String.split,",",model.content));
             var email = A2(getLink,links,0);
             var twitter = A2(getLink,links,1);
-            var linkedIn = A2(getLink,links,3);
+            var linkedIn = A2(getLink,links,2);
             return A2($Html.div,
             _U.list([]),
             _U.list([A2($Html.a,

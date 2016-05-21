@@ -132,7 +132,7 @@ findContent model =
       links = fromList ( split ","  model.content )
       email    = getLink links 0
       twitter  = getLink links 1
-      linkedIn = getLink links 3
+      linkedIn = getLink links 2
     in
       div  [ ]
         [ a [ iconStyle, href email    ]
