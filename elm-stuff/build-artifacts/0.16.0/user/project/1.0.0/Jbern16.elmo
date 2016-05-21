@@ -50,6 +50,7 @@ Elm.Jbern16.make = function (_elm) {
             var email = A2(getLink,links,0);
             var twitter = A2(getLink,links,1);
             var linkedIn = A2(getLink,links,2);
+            var angel = A2(getLink,links,3);
             return A2($Html.div,
             _U.list([]),
             _U.list([A2($Html.a,
@@ -60,7 +61,10 @@ Elm.Jbern16.make = function (_elm) {
                     _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-twitter-square fa-3x")]),_U.list([]))]))
                     ,A2($Html.a,
                     _U.list([iconStyle,$Html$Attributes.href(linkedIn)]),
-                    _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-linkedin-square fa-3x")]),_U.list([]))]))]));
+                    _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-linkedin-square fa-3x")]),_U.list([]))]))
+                    ,A2($Html.a,
+                    _U.list([iconStyle,$Html$Attributes.href(angel)]),
+                    _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-angellist fa-3x")]),_U.list([]))]))]));
          } else if (_U.eq(model.headline,"My Work")) {
                var links = $Array.fromList(A2($String.split,",",model.content));
                var github = A2(getLink,links,0);
@@ -137,7 +141,7 @@ Elm.Jbern16.make = function (_elm) {
    var flavorTexts = $Array.fromList(_U.list(["","Currently enjoying Rails, Ruby, Elm, JS",""]));
    var contents = $Array.fromList(_U.list(["New York Based Web Developer"
                                           ,"https://github.com/jbern16, https://medium.com/@jBern16"
-                                          ,"mailto:jbern16@gmail.com, https://twitter.com/jbern16, https://www.linkedin.com/in/jonathanbernesser"]));
+                                          ,"mailto:jbern16@gmail.com, https://twitter.com/jbern16, https://www.linkedin.com/in/jonathanbernesser, https://angel.co/jonathan-bernesser"]));
    var headlines = $Array.fromList(_U.list(["Jonathan Bernesser","My Work","Contact Me"]));
    var update = F2(function (action,model) {
       var _p0 = action;

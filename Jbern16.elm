@@ -35,7 +35,7 @@ headlines =
 
 contents : Array String
 contents =
-  fromList [ "New York Based Web Developer", "https://github.com/jbern16, https://medium.com/@jBern16", "mailto:jbern16@gmail.com, https://twitter.com/jbern16, https://www.linkedin.com/in/jonathanbernesser" ]
+  fromList [ "New York Based Web Developer", "https://github.com/jbern16, https://medium.com/@jBern16", "mailto:jbern16@gmail.com, https://twitter.com/jbern16, https://www.linkedin.com/in/jonathanbernesser, https://angel.co/jonathan-bernesser" ]
 
 flavorTexts : Array String
 flavorTexts =
@@ -133,6 +133,7 @@ findContent model =
       email    = getLink links 0
       twitter  = getLink links 1
       linkedIn = getLink links 2
+      angel = getLink links 3
     in
       div  [ ]
         [ a [ iconStyle, href email    ]
@@ -141,6 +142,8 @@ findContent model =
           [ i [ class "fa fa-twitter-square fa-3x"  ] [ ] ]
         , a [ iconStyle, href linkedIn ]
           [ i [ class "fa fa-linkedin-square fa-3x" ] [ ] ]
+        , a [ iconStyle, href angel ]
+          [ i [ class "fa fa-angellist fa-3x" ] [ ] ]
         ]
 
   else if model.headline == "My Work" then
