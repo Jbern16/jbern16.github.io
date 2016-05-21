@@ -6,7 +6,6 @@ import Html.Attributes exposing (..)
 import Array exposing (fromList, get, Array )
 import StartApp.Simple as StartApp
 import Maybe exposing (withDefault)
-import Graphics.Collage exposing (circle)
 import String exposing (split)
 
 --MODEL
@@ -209,8 +208,8 @@ corner model =
 
 view : Signal.Address Action -> Model -> Html
 view address model =
-  div [ backgroundStyle model.backgroundColor ] [
-    div [ onClick address NextClick ] [
+  div [ backgroundStyle model.backgroundColor, onClick address NextClick ] [
+    div [ ] [
       div [ class "small-6 small-centered columns", textContainer ] [
         div [ border ] [
           h1 [ headlineStyle ] [ text model.headline ]

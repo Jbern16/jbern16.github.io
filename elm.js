@@ -10364,7 +10364,7 @@ Elm.Jbern16.make = function (_elm) {
       _U.list([sepStyle]),
       _U.list([$Html.text(" ° ° ")])) : A2($Html.span,_U.list([sepStyle]),_U.list([$Html.text(" ° ° ° ")]));
    };
-   var iconStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "padding",_1: "10px"},{ctor: "_Tuple2",_0: "color",_1: "black"}]));
+   var iconStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "padding",_1: "10px"},{ctor: "_Tuple2",_0: "color",_1: "white"}]));
    var findContent = function (model) {
       if (_U.eq(model.headline,"Contact Me")) {
             var links = $Array.fromList(A2($String.split,",",model.content));
@@ -10436,9 +10436,9 @@ Elm.Jbern16.make = function (_elm) {
    };
    var view = F2(function (address,model) {
       return A2($Html.div,
-      _U.list([backgroundStyle(model.backgroundColor)]),
+      _U.list([backgroundStyle(model.backgroundColor),A2($Html$Events.onClick,address,NextClick)]),
       _U.list([A2($Html.div,
-              _U.list([A2($Html$Events.onClick,address,NextClick)]),
+              _U.list([]),
               _U.list([A2($Html.div,
               _U.list([$Html$Attributes.$class("small-6 small-centered columns"),textContainer]),
               _U.list([A2($Html.div,
