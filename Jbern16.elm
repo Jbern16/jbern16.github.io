@@ -20,9 +20,9 @@ type alias Model =
 
 init : Model
 init =
-  { headline = "Jonathan Bernesser"
+  { headline = "Hi, I'm Jonathan Bernesser"
   , content = "New York Based Web Developer"
-  , flavorText = ""
+  , flavorText = "Click through and learn more"
   , backgroundColor = "#3772FF"
   , nextID = 1
   }
@@ -31,19 +31,19 @@ init =
 
 headlines : Array String
 headlines =
-  fromList [ "Jonathan Bernesser", "My Work", "Contact Me" ]
+  fromList [ " Hi, I'm Jonathan Bernesser", "Check Out My Work", "Let's Chat" ]
 
 contents : Array String
 contents =
-  fromList [ "New York Based Web Developer", "https://github.com/jbern16, https://medium.com/@jBern16", "mailto:jbern16@gmail.com, https://twitter.com/jbern16, https://www.linkedin.com/in/jonathanbernesser, https://angel.co/jonathan-bernesser" ]
+  fromList [ "New York Based Web Developer", "https://github.com/jbern16 https://medium.com/@jBern16 https://angel.co/jonathan-bernesser", "mailto:jbern16@gmail.com https://twitter.com/jbern16 https://www.linkedin.com/in/jonathanbernesser" ]
 
 flavorTexts : Array String
 flavorTexts =
-  fromList [ "", "Currently enjoying Rails, Ruby, Elm, JS", "" ]
+  fromList [ "Click through and learn more", "I'm currently enjoying Rails, Ruby, Elm, and Javascript", "" ]
 
 backgroundColors : Array String
 backgroundColors =
-  fromList [ "#3772FF", "#1B2021", "#5FBB97" ]
+  fromList [ "#3772FF", "#1B2021", "#31AFD4" ]
 
 changeID : Model -> Int
 changeID model =
@@ -96,12 +96,11 @@ textContainer =
 
 border =
   style [ ( "border-style", "solid")
-        , ( "border-width", "4px")
+        , ( "border-width", "6px")
         , ( "border-color", "#E9F1F7")
         , ( "paddingTop", "30px")
         , ( "paddingBottom", "10px")
         , ( "border-radius", "3px")
-        , ( "box-shadow", "0 2px 2px 0 #888, 0 2px 2px 0 #888")
         ]
 
 
@@ -127,13 +126,12 @@ getLink content index =
 
 findContent : Model -> Html
 findContent model =
-  if model.headline == "Contact Me" then
+  if model.headline == "Let's Chat" then
     let
-      links = fromList ( split ","  model.content )
+      links = fromList ( split " "  model.content )
       email    = getLink links 0
       twitter  = getLink links 1
       linkedIn = getLink links 2
-      angel = getLink links 3
     in
       div  [ ]
         [ a [ iconStyle, href email    ]
@@ -142,21 +140,22 @@ findContent model =
           [ i [ class "fa fa-twitter-square fa-3x"  ] [ ] ]
         , a [ iconStyle, href linkedIn ]
           [ i [ class "fa fa-linkedin-square fa-3x" ] [ ] ]
-        , a [ iconStyle, href angel ]
-          [ i [ class "fa fa-angellist fa-3x" ] [ ] ]
         ]
 
-  else if model.headline == "My Work" then
+  else if model.headline == "Check Out My Work" then
     let
-      links  = fromList ( split ","  model.content )
+      links  = fromList ( split " "  model.content )
       github = getLink links 0
       medium = getLink links 1
+      angel  = getLink links 2
     in
       div  [ ]
         [ a [ iconStyle, href github ]
           [ i [ class "fa fa-github-square fa-3x" ] [ ] ]
         , a [ iconStyle, href medium   ]
           [ i [ class "fa fa-medium fa-3x"   ] [ ] ]
+        , a [ iconStyle, href angel ]
+          [ i [ class "fa fa-angellist fa-3x" ] [ ] ]
         ]
   else
     div  [ style [ ("font-size", "24px") ] ] [ text model.content ]
@@ -164,9 +163,9 @@ findContent model =
 
 findSep : String -> Html
 findSep headline =
-  if headline == "Contact Me" then
+  if headline == "Let's Chat" then
     span [ sepStyle ] [ text " ° " ]
-  else if headline == "My Work" then
+  else if headline == "Check Out My Work" then
     span [ sepStyle ] [ text " ° ° " ]
   else
     span [ sepStyle ] [ text " ° ° ° " ]
@@ -190,14 +189,14 @@ footer =
     source = "https://github.com/Jbern16/jbern16.github.io"
   in
     div [ style' ] [
-      a [ linkStyle, href source ] [ text "Made with Elm. Hosted with love" ]
+      a [ linkStyle, href source ] [ text "Made with Elm. Check it out!" ]
     ]
 
 
 corner model =
   let
     next = (changeID model) - 1
-    nextHex = withDefault "#99D5C9" ( get next backgroundColors )
+    nextHex = withDefault "#31AFD4" ( get next backgroundColors )
   in
     style [ ( "width", "0" )
           , ( "height", "0" )
@@ -213,14 +212,14 @@ view : Signal.Address Action -> Model -> Html
 view address model =
   div [ backgroundStyle model.backgroundColor, onClick address NextClick ] [
     div [ ] [
-      div [ class "small-6 small-centered columns", textContainer ] [
+      div [ class "small-8 small-centered columns", textContainer ] [
         div [ border ] [
           h1 [ headlineStyle ] [ text model.headline ]
           , findSep model.headline
           , div [ style [ ("font-family", "Droid Sans Mono" ) ] ] [
             findContent model
           , br [ ] [ ]
-          , p  [ style [ ("font-size", "24px") ] ] [ text model.flavorText ]
+          , p  [ style [ ("font-size", "18px") ] ] [ text model.flavorText ]
           ]
         ]
       ]

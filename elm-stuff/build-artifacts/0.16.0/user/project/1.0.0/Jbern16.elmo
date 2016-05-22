@@ -32,25 +32,25 @@ Elm.Jbern16.make = function (_elm) {
                                                   ,{ctor: "_Tuple2",_0: "font-family",_1: "Karla, sans-serif"}]));
       return A2($Html.div,
       _U.list([style$]),
-      _U.list([A2($Html.a,_U.list([linkStyle,$Html$Attributes.href(source)]),_U.list([$Html.text("Made with Elm. Hosted with love")]))]));
+      _U.list([A2($Html.a,_U.list([linkStyle,$Html$Attributes.href(source)]),_U.list([$Html.text("Made with Elm. Check it out!")]))]));
    }();
    var getLink = F2(function (content,index) {    return A2($Maybe.withDefault,"",A2($Array.get,index,content));});
    var headlineStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "48px"}
                                                       ,{ctor: "_Tuple2",_0: "font-family",_1: "Montserrat, sans-serif"}]));
    var sepStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "32px"}]));
    var findSep = function (headline) {
-      return _U.eq(headline,"Contact Me") ? A2($Html.span,_U.list([sepStyle]),_U.list([$Html.text(" ° ")])) : _U.eq(headline,"My Work") ? A2($Html.span,
+      return _U.eq(headline,"Let\'s Chat") ? A2($Html.span,_U.list([sepStyle]),_U.list([$Html.text(" ° ")])) : _U.eq(headline,
+      "Check Out My Work") ? A2($Html.span,_U.list([sepStyle]),_U.list([$Html.text(" ° ° ")])) : A2($Html.span,
       _U.list([sepStyle]),
-      _U.list([$Html.text(" ° ° ")])) : A2($Html.span,_U.list([sepStyle]),_U.list([$Html.text(" ° ° ° ")]));
+      _U.list([$Html.text(" ° ° ° ")]));
    };
    var iconStyle = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "padding",_1: "10px"},{ctor: "_Tuple2",_0: "color",_1: "white"}]));
    var findContent = function (model) {
-      if (_U.eq(model.headline,"Contact Me")) {
-            var links = $Array.fromList(A2($String.split,",",model.content));
+      if (_U.eq(model.headline,"Let\'s Chat")) {
+            var links = $Array.fromList(A2($String.split," ",model.content));
             var email = A2(getLink,links,0);
             var twitter = A2(getLink,links,1);
             var linkedIn = A2(getLink,links,2);
-            var angel = A2(getLink,links,3);
             return A2($Html.div,
             _U.list([]),
             _U.list([A2($Html.a,
@@ -61,14 +61,12 @@ Elm.Jbern16.make = function (_elm) {
                     _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-twitter-square fa-3x")]),_U.list([]))]))
                     ,A2($Html.a,
                     _U.list([iconStyle,$Html$Attributes.href(linkedIn)]),
-                    _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-linkedin-square fa-3x")]),_U.list([]))]))
-                    ,A2($Html.a,
-                    _U.list([iconStyle,$Html$Attributes.href(angel)]),
-                    _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-angellist fa-3x")]),_U.list([]))]))]));
-         } else if (_U.eq(model.headline,"My Work")) {
-               var links = $Array.fromList(A2($String.split,",",model.content));
+                    _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-linkedin-square fa-3x")]),_U.list([]))]))]));
+         } else if (_U.eq(model.headline,"Check Out My Work")) {
+               var links = $Array.fromList(A2($String.split," ",model.content));
                var github = A2(getLink,links,0);
                var medium = A2(getLink,links,1);
+               var angel = A2(getLink,links,2);
                return A2($Html.div,
                _U.list([]),
                _U.list([A2($Html.a,
@@ -76,18 +74,20 @@ Elm.Jbern16.make = function (_elm) {
                        _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-github-square fa-3x")]),_U.list([]))]))
                        ,A2($Html.a,
                        _U.list([iconStyle,$Html$Attributes.href(medium)]),
-                       _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-medium fa-3x")]),_U.list([]))]))]));
+                       _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-medium fa-3x")]),_U.list([]))]))
+                       ,A2($Html.a,
+                       _U.list([iconStyle,$Html$Attributes.href(angel)]),
+                       _U.list([A2($Html.i,_U.list([$Html$Attributes.$class("fa fa-angellist fa-3x")]),_U.list([]))]))]));
             } else return A2($Html.div,
             _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "24px"}]))]),
             _U.list([$Html.text(model.content)]));
    };
    var border = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "border-style",_1: "solid"}
-                                               ,{ctor: "_Tuple2",_0: "border-width",_1: "4px"}
+                                               ,{ctor: "_Tuple2",_0: "border-width",_1: "6px"}
                                                ,{ctor: "_Tuple2",_0: "border-color",_1: "#E9F1F7"}
                                                ,{ctor: "_Tuple2",_0: "paddingTop",_1: "30px"}
                                                ,{ctor: "_Tuple2",_0: "paddingBottom",_1: "10px"}
-                                               ,{ctor: "_Tuple2",_0: "border-radius",_1: "3px"}
-                                               ,{ctor: "_Tuple2",_0: "box-shadow",_1: "0 2px 2px 0 #888, 0 2px 2px 0 #888"}]));
+                                               ,{ctor: "_Tuple2",_0: "border-radius",_1: "3px"}]));
    var textContainer = $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "paddingTop",_1: "13%"}
                                                       ,{ctor: "_Tuple2",_0: "paddingBottom",_1: "20%"}
                                                       ,{ctor: "_Tuple2",_0: "text-align",_1: "center"}
@@ -102,10 +102,10 @@ Elm.Jbern16.make = function (_elm) {
    var NextClick = {ctor: "NextClick"};
    var NoOp = {ctor: "NoOp"};
    var changeID = function (model) {    return _U.eq(model.nextID,2) ? 0 : model.nextID + 1;};
-   var backgroundColors = $Array.fromList(_U.list(["#3772FF","#1B2021","#5FBB97"]));
+   var backgroundColors = $Array.fromList(_U.list(["#3772FF","#1B2021","#31AFD4"]));
    var corner = function (model) {
       var next = changeID(model) - 1;
-      var nextHex = A2($Maybe.withDefault,"#99D5C9",A2($Array.get,next,backgroundColors));
+      var nextHex = A2($Maybe.withDefault,"#31AFD4",A2($Array.get,next,backgroundColors));
       return $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "width",_1: "0"}
                                             ,{ctor: "_Tuple2",_0: "height",_1: "0"}
                                             ,{ctor: "_Tuple2",_0: "border-style",_1: "solid"}
@@ -123,7 +123,7 @@ Elm.Jbern16.make = function (_elm) {
       _U.list([A2($Html.div,
               _U.list([]),
               _U.list([A2($Html.div,
-              _U.list([$Html$Attributes.$class("small-6 small-centered columns"),textContainer]),
+              _U.list([$Html$Attributes.$class("small-8 small-centered columns"),textContainer]),
               _U.list([A2($Html.div,
               _U.list([border]),
               _U.list([A2($Html.h1,_U.list([headlineStyle]),_U.list([$Html.text(model.headline)]))
@@ -133,16 +133,16 @@ Elm.Jbern16.make = function (_elm) {
                       _U.list([findContent(model)
                               ,A2($Html.br,_U.list([]),_U.list([]))
                               ,A2($Html.p,
-                              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "24px"}]))]),
+                              _U.list([$Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "font-size",_1: "18px"}]))]),
                               _U.list([$Html.text(model.flavorText)]))]))]))]))]))
               ,A2($Html.span,_U.list([corner(model)]),_U.list([]))
               ,footer]));
    });
-   var flavorTexts = $Array.fromList(_U.list(["","Currently enjoying Rails, Ruby, Elm, JS",""]));
+   var flavorTexts = $Array.fromList(_U.list(["Click through and learn more","I\'m currently enjoying Rails, Ruby, Elm, and Javascript",""]));
    var contents = $Array.fromList(_U.list(["New York Based Web Developer"
-                                          ,"https://github.com/jbern16, https://medium.com/@jBern16"
-                                          ,"mailto:jbern16@gmail.com, https://twitter.com/jbern16, https://www.linkedin.com/in/jonathanbernesser, https://angel.co/jonathan-bernesser"]));
-   var headlines = $Array.fromList(_U.list(["Jonathan Bernesser","My Work","Contact Me"]));
+                                          ,"https://github.com/jbern16 https://medium.com/@jBern16 https://angel.co/jonathan-bernesser"
+                                          ,"mailto:jbern16@gmail.com https://twitter.com/jbern16 https://www.linkedin.com/in/jonathanbernesser"]));
+   var headlines = $Array.fromList(_U.list([" Hi, I\'m Jonathan Bernesser","Check Out My Work","Let\'s Chat"]));
    var update = F2(function (action,model) {
       var _p0 = action;
       if (_p0.ctor === "NoOp") {
@@ -155,7 +155,11 @@ Elm.Jbern16.make = function (_elm) {
             return _U.update(model,{headline: headline,content: content,flavorText: flavorText,backgroundColor: backgroundColor,nextID: changeID(model)});
          }
    });
-   var init = {headline: "Jonathan Bernesser",content: "New York Based Web Developer",flavorText: "",backgroundColor: "#3772FF",nextID: 1};
+   var init = {headline: "Hi, I\'m Jonathan Bernesser"
+              ,content: "New York Based Web Developer"
+              ,flavorText: "Click through and learn more"
+              ,backgroundColor: "#3772FF"
+              ,nextID: 1};
    var main = $StartApp$Simple.start({model: init,update: update,view: view});
    var Model = F5(function (a,b,c,d,e) {    return {headline: a,content: b,flavorText: c,backgroundColor: d,nextID: e};});
    return _elm.Jbern16.values = {_op: _op
