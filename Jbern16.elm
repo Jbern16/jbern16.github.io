@@ -201,7 +201,7 @@ corner model =
     style [ ( "width", "0" )
           , ( "height", "0" )
           , ( "border-style", "solid")
-          , ( "border-width", "0 375px 375px 0")
+          , ( "border-width", "0 500px 500px 0")
           , ( "border-color", "transparent " ++ nextHex ++ " transparent transparent ")
           , ( "position", "fixed" )
           , ( "right", "0%")
