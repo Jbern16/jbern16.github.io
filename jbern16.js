@@ -10430,7 +10430,7 @@ Elm.Jbern16.make = function (_elm) {
       return $Html$Attributes.style(_U.list([{ctor: "_Tuple2",_0: "width",_1: "0"}
                                             ,{ctor: "_Tuple2",_0: "height",_1: "0"}
                                             ,{ctor: "_Tuple2",_0: "border-style",_1: "solid"}
-                                            ,{ctor: "_Tuple2",_0: "border-width",_1: "0 480px 480px 0"}
+                                            ,{ctor: "_Tuple2",_0: "border-width",_1: "0 400px 400px 0"}
                                             ,{ctor: "_Tuple2"
                                              ,_0: "border-color"
                                              ,_1: A2($Basics._op["++"],"transparent ",A2($Basics._op["++"],nextHex," transparent transparent "))}
