@@ -1,0 +1,517 @@
+var _Jbern16$jbern16.github.io$Jbern16$footer$ = function () {
+	var source = 'https://github.com/Jbern16/jbern16.github.io';
+	var linkStyle = _elm_lang$html$Html_Attributes$style(
+		_elm_lang$core$Native_List.fromArray(
+			[
+				{ctor: '_Tuple2', _0: 'color', _1: '#45503B'},
+				{ctor: '_Tuple2', _0: 'font-size', _1: '14px'},
+				{ctor: '_Tuple2', _0: 'position', _1: 'relative'},
+				{ctor: '_Tuple2', _0: 'top', _1: '30%'}
+			]));
+	var style$ = _elm_lang$html$Html_Attributes$style(
+		_elm_lang$core$Native_List.fromArray(
+			[
+				{ctor: '_Tuple2', _0: 'position', _1: 'fixed'},
+				{ctor: '_Tuple2', _0: 'text-align', _1: 'center'},
+				{ctor: '_Tuple2', _0: 'background-color', _1: '#E9F1F7'},
+				{ctor: '_Tuple2', _0: 'height', _1: '100px'},
+				{ctor: '_Tuple2', _0: 'width', _1: '100%'},
+				{ctor: '_Tuple2', _0: 'bottom', _1: '0%'},
+				{ctor: '_Tuple2', _0: 'font-family', _1: 'Karla, sans-serif'}
+			]));
+	return A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[style$]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				_elm_lang$html$Html$a,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						linkStyle,
+						_elm_lang$html$Html_Attributes$href(source)
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text('Made with Elm. Check it out!')
+					]))
+			]));
+}();
+var _Jbern16$jbern16.github.io$Jbern16$getLink = F2(
+	function (content, index) {
+		return A2(
+			_elm_lang$core$Maybe$withDefault,
+			'',
+			A2(_elm_lang$core$Array$get, index, content));
+	});
+var _Jbern16$jbern16.github.io$Jbern16$findInfo = function (model) {
+	if (_elm_lang$core$Native_Utils.eq(model.headline, 'Hi, I\'m Jonathan Bernesser')) {
+		return A2(
+			_elm_lang$html$Html$div,
+			_elm_lang$core$Native_List.fromArray(
+				[]),
+			_elm_lang$core$Native_List.fromArray(
+				[
+					A2(
+					_elm_lang$html$Html$a,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html_Attributes$href(model.moreInfo)
+						]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html$text('My Resume')
+						]))
+				]));
+	} else {
+		if (_elm_lang$core$Native_Utils.eq(model.headline, 'Check Out My Work')) {
+			var links = _elm_lang$core$Array$fromList(
+				A2(_elm_lang$core$String$split, ' ', model.moreInfo));
+			var clarkebase = A2(_Jbern16$jbern16.github.io$Jbern16$getLink, links, 0);
+			var trendwolf = A2(_Jbern16$jbern16.github.io$Jbern16$getLink, links, 1);
+			var eccentric = A2(_Jbern16$jbern16.github.io$Jbern16$getLink, links, 2);
+			return A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(
+						_elm_lang$html$Html$a,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$href(clarkebase)
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html$text('Venmo for Turing School\'s CryptoCurrency')
+							])),
+						A2(
+						_elm_lang$html$Html$a,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$href(trendwolf)
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html$text('Google Font Tracker in Elm')
+							])),
+						A2(
+						_elm_lang$html$Html$a,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$href(eccentric)
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html$text('Store of Stores')
+							]))
+					]));
+		} else {
+			return A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text('')
+					]));
+		}
+	}
+};
+var _Jbern16$jbern16.github.io$Jbern16$headlineStyle = _elm_lang$html$Html_Attributes$style(
+	_elm_lang$core$Native_List.fromArray(
+		[
+			{ctor: '_Tuple2', _0: 'font-size', _1: '48px'},
+			{ctor: '_Tuple2', _0: 'font-family', _1: 'Montserrat, sans-serif'}
+		]));
+var _Jbern16$jbern16.github.io$Jbern16$sepStyle = _elm_lang$html$Html_Attributes$style(
+	_elm_lang$core$Native_List.fromArray(
+		[
+			{ctor: '_Tuple2', _0: 'font-size', _1: '32px'}
+		]));
+var _Jbern16$jbern16.github.io$Jbern16$findSep = function (headline) {
+	return _elm_lang$core$Native_Utils.eq(headline, 'Let\'s Chat') ? A2(
+		_elm_lang$html$Html$span,
+		_elm_lang$core$Native_List.fromArray(
+			[_Jbern16$jbern16.github.io$Jbern16$sepStyle]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$html$Html$text(' ° ')
+			])) : (_elm_lang$core$Native_Utils.eq(headline, 'Check Out My Work') ? A2(
+		_elm_lang$html$Html$span,
+		_elm_lang$core$Native_List.fromArray(
+			[_Jbern16$jbern16.github.io$Jbern16$sepStyle]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$html$Html$text(' ° ° ')
+			])) : A2(
+		_elm_lang$html$Html$span,
+		_elm_lang$core$Native_List.fromArray(
+			[_Jbern16$jbern16.github.io$Jbern16$sepStyle]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$html$Html$text(' ° ° ° ')
+			])));
+};
+var _Jbern16$jbern16.github.io$Jbern16$iconStyle = _elm_lang$html$Html_Attributes$style(
+	_elm_lang$core$Native_List.fromArray(
+		[
+			{ctor: '_Tuple2', _0: 'padding', _1: '10px'},
+			{ctor: '_Tuple2', _0: 'color', _1: 'white'}
+		]));
+var _Jbern16$jbern16.github.io$Jbern16$findContent = function (model) {
+	if (_elm_lang$core$Native_Utils.eq(model.headline, 'Let\'s Chat')) {
+		var links = _elm_lang$core$Array$fromList(
+			A2(_elm_lang$core$String$split, ' ', model.content));
+		var email = A2(_Jbern16$jbern16.github.io$Jbern16$getLink, links, 0);
+		var twitter = A2(_Jbern16$jbern16.github.io$Jbern16$getLink, links, 1);
+		var linkedIn = A2(_Jbern16$jbern16.github.io$Jbern16$getLink, links, 2);
+		return A2(
+			_elm_lang$html$Html$div,
+			_elm_lang$core$Native_List.fromArray(
+				[]),
+			_elm_lang$core$Native_List.fromArray(
+				[
+					A2(
+					_elm_lang$html$Html$a,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_Jbern16$jbern16.github.io$Jbern16$iconStyle,
+							_elm_lang$html$Html_Attributes$href(email)
+						]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							A2(
+							_elm_lang$html$Html$i,
+							_elm_lang$core$Native_List.fromArray(
+								[
+									_elm_lang$html$Html_Attributes$class('fa fa-envelope fa-3x')
+								]),
+							_elm_lang$core$Native_List.fromArray(
+								[]))
+						])),
+					A2(
+					_elm_lang$html$Html$a,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_Jbern16$jbern16.github.io$Jbern16$iconStyle,
+							_elm_lang$html$Html_Attributes$href(twitter)
+						]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							A2(
+							_elm_lang$html$Html$i,
+							_elm_lang$core$Native_List.fromArray(
+								[
+									_elm_lang$html$Html_Attributes$class('fa fa-twitter-square fa-3x')
+								]),
+							_elm_lang$core$Native_List.fromArray(
+								[]))
+						])),
+					A2(
+					_elm_lang$html$Html$a,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_Jbern16$jbern16.github.io$Jbern16$iconStyle,
+							_elm_lang$html$Html_Attributes$href(linkedIn)
+						]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							A2(
+							_elm_lang$html$Html$i,
+							_elm_lang$core$Native_List.fromArray(
+								[
+									_elm_lang$html$Html_Attributes$class('fa fa-linkedin-square fa-3x')
+								]),
+							_elm_lang$core$Native_List.fromArray(
+								[]))
+						]))
+				]));
+	} else {
+		if (_elm_lang$core$Native_Utils.eq(model.headline, 'Check Out My Work')) {
+			var links = _elm_lang$core$Array$fromList(
+				A2(_elm_lang$core$String$split, ' ', model.content));
+			var github = A2(_Jbern16$jbern16.github.io$Jbern16$getLink, links, 0);
+			var medium = A2(_Jbern16$jbern16.github.io$Jbern16$getLink, links, 1);
+			var angel = A2(_Jbern16$jbern16.github.io$Jbern16$getLink, links, 2);
+			return A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(
+						_elm_lang$html$Html$a,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_Jbern16$jbern16.github.io$Jbern16$iconStyle,
+								_elm_lang$html$Html_Attributes$href(github)
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								A2(
+								_elm_lang$html$Html$i,
+								_elm_lang$core$Native_List.fromArray(
+									[
+										_elm_lang$html$Html_Attributes$class('fa fa-github-square fa-3x')
+									]),
+								_elm_lang$core$Native_List.fromArray(
+									[]))
+							])),
+						A2(
+						_elm_lang$html$Html$a,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_Jbern16$jbern16.github.io$Jbern16$iconStyle,
+								_elm_lang$html$Html_Attributes$href(medium)
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								A2(
+								_elm_lang$html$Html$i,
+								_elm_lang$core$Native_List.fromArray(
+									[
+										_elm_lang$html$Html_Attributes$class('fa fa-medium fa-3x')
+									]),
+								_elm_lang$core$Native_List.fromArray(
+									[]))
+							])),
+						A2(
+						_elm_lang$html$Html$a,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_Jbern16$jbern16.github.io$Jbern16$iconStyle,
+								_elm_lang$html$Html_Attributes$href(angel)
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								A2(
+								_elm_lang$html$Html$i,
+								_elm_lang$core$Native_List.fromArray(
+									[
+										_elm_lang$html$Html_Attributes$class('fa fa-angellist fa-3x')
+									]),
+								_elm_lang$core$Native_List.fromArray(
+									[]))
+							]))
+					]));
+		} else {
+			return A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Attributes$style(
+						_elm_lang$core$Native_List.fromArray(
+							[
+								{ctor: '_Tuple2', _0: 'font-size', _1: '24px'}
+							]))
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text(model.content)
+					]));
+		}
+	}
+};
+var _Jbern16$jbern16.github.io$Jbern16$border = _elm_lang$html$Html_Attributes$style(
+	_elm_lang$core$Native_List.fromArray(
+		[
+			{ctor: '_Tuple2', _0: 'border-style', _1: 'solid'},
+			{ctor: '_Tuple2', _0: 'border-width', _1: '6px'},
+			{ctor: '_Tuple2', _0: 'border-color', _1: '#E9F1F7'},
+			{ctor: '_Tuple2', _0: 'paddingTop', _1: '30px'},
+			{ctor: '_Tuple2', _0: 'paddingBottom', _1: '10px'},
+			{ctor: '_Tuple2', _0: 'border-radius', _1: '3px'}
+		]));
+var _Jbern16$jbern16.github.io$Jbern16$textContainer = _elm_lang$html$Html_Attributes$style(
+	_elm_lang$core$Native_List.fromArray(
+		[
+			{ctor: '_Tuple2', _0: 'paddingTop', _1: '13%'},
+			{ctor: '_Tuple2', _0: 'paddingBottom', _1: '20%'},
+			{ctor: '_Tuple2', _0: 'text-align', _1: 'center'},
+			{ctor: '_Tuple2', _0: 'color', _1: '#E9F1F7'}
+		]));
+var _Jbern16$jbern16.github.io$Jbern16$backgroundStyle = function (hex) {
+	return _elm_lang$html$Html_Attributes$style(
+		_elm_lang$core$Native_List.fromArray(
+			[
+				{ctor: '_Tuple2', _0: 'backgroundColor', _1: hex},
+				{ctor: '_Tuple2', _0: 'min-height', _1: '100vh'},
+				{ctor: '_Tuple2', _0: 'background-position', _1: 'center'},
+				{ctor: '_Tuple2', _0: 'background-size', _1: 'cover'},
+				{ctor: '_Tuple2', _0: 'cursor', _1: 'e-resize'}
+			]));
+};
+var _Jbern16$jbern16.github.io$Jbern16$changeID = function (model) {
+	return _elm_lang$core$Native_Utils.eq(model.nextID, 2) ? 0 : (model.nextID + 1);
+};
+var _Jbern16$jbern16.github.io$Jbern16$backgroundColors = _elm_lang$core$Array$fromList(
+	_elm_lang$core$Native_List.fromArray(
+		['#3772FF', '#1B2021', '#31AFD4']));
+var _Jbern16$jbern16.github.io$Jbern16$corner = function (model) {
+	var next = _Jbern16$jbern16.github.io$Jbern16$changeID(model) - 1;
+	var nextHex = A2(
+		_elm_lang$core$Maybe$withDefault,
+		'#31AFD4',
+		A2(_elm_lang$core$Array$get, next, _Jbern16$jbern16.github.io$Jbern16$backgroundColors));
+	return _elm_lang$html$Html_Attributes$style(
+		_elm_lang$core$Native_List.fromArray(
+			[
+				{ctor: '_Tuple2', _0: 'width', _1: '0'},
+				{ctor: '_Tuple2', _0: 'height', _1: '0'},
+				{ctor: '_Tuple2', _0: 'border-style', _1: 'solid'},
+				{ctor: '_Tuple2', _0: 'border-width', _1: '0 385px 385px 0'},
+				{
+				ctor: '_Tuple2',
+				_0: 'border-color',
+				_1: A2(
+					_elm_lang$core$Basics_ops['++'],
+					'transparent ',
+					A2(_elm_lang$core$Basics_ops['++'], nextHex, ' transparent transparent '))
+			},
+				{ctor: '_Tuple2', _0: 'position', _1: 'fixed'},
+				{ctor: '_Tuple2', _0: 'right', _1: '0%'},
+				{ctor: '_Tuple2', _0: 'top', _1: '0%'}
+			]));
+};
+var _Jbern16$jbern16.github.io$Jbern16$moreInfos = _elm_lang$core$Array$fromList(
+	_elm_lang$core$Native_List.fromArray(
+		['jbernesser.me/jb_resume.pdf', 'http://clarkebase.com jbernesser.me/trendwolf http://eccentric-photos.herokuapp.com', '']));
+var _Jbern16$jbern16.github.io$Jbern16$flavorTexts = _elm_lang$core$Array$fromList(
+	_elm_lang$core$Native_List.fromArray(
+		['Click through and learn more', 'I\'m currently enjoying Rails, Ruby, Elm, and Javascript', '']));
+var _Jbern16$jbern16.github.io$Jbern16$contents = _elm_lang$core$Array$fromList(
+	_elm_lang$core$Native_List.fromArray(
+		['New York Based Web Developer', 'https://github.com/jbern16 https://medium.com/@jBern16 https://angel.co/jonathan-bernesser', 'mailto:jbern16@gmail.com https://twitter.com/jbern16 https://www.linkedin.com/in/jonathanbernesser']));
+var _Jbern16$jbern16.github.io$Jbern16$headlines = _elm_lang$core$Array$fromList(
+	_elm_lang$core$Native_List.fromArray(
+		[' Hi, I\'m Jonathan Bernesser', 'Check Out My Work', 'Let\'s Chat']));
+var _Jbern16$jbern16.github.io$Jbern16$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		var moreInfo = A2(
+			_elm_lang$core$Maybe$withDefault,
+			'',
+			A2(_elm_lang$core$Array$get, model.nextID, _Jbern16$jbern16.github.io$Jbern16$moreInfos));
+		var backgroundColor = A2(
+			_elm_lang$core$Maybe$withDefault,
+			'',
+			A2(_elm_lang$core$Array$get, model.nextID, _Jbern16$jbern16.github.io$Jbern16$backgroundColors));
+		var flavorText = A2(
+			_elm_lang$core$Maybe$withDefault,
+			'',
+			A2(_elm_lang$core$Array$get, model.nextID, _Jbern16$jbern16.github.io$Jbern16$flavorTexts));
+		var content = A2(
+			_elm_lang$core$Maybe$withDefault,
+			'',
+			A2(_elm_lang$core$Array$get, model.nextID, _Jbern16$jbern16.github.io$Jbern16$contents));
+		var headline = A2(
+			_elm_lang$core$Maybe$withDefault,
+			'',
+			A2(_elm_lang$core$Array$get, model.nextID, _Jbern16$jbern16.github.io$Jbern16$headlines));
+		return _elm_lang$core$Native_Utils.update(
+			model,
+			{
+				headline: headline,
+				content: content,
+				flavorText: flavorText,
+				backgroundColor: backgroundColor,
+				moreInfo: moreInfo,
+				nextID: _Jbern16$jbern16.github.io$Jbern16$changeID(model)
+			});
+	});
+var _Jbern16$jbern16.github.io$Jbern16$init = {headline: 'Hi, I\'m Jonathan Bernesser', content: 'New York Based Web Developer', flavorText: 'Click through and learn more', backgroundColor: '#3772FF', moreInfo: 'jbernesser.me/jb_resume.pdf', nextID: 1};
+var _Jbern16$jbern16.github.io$Jbern16$Model = F6(
+	function (a, b, c, d, e, f) {
+		return {headline: a, content: b, flavorText: c, backgroundColor: d, nextID: e, moreInfo: f};
+	});
+var _Jbern16$jbern16.github.io$Jbern16$NextClick = {ctor: 'NextClick'};
+var _Jbern16$jbern16.github.io$Jbern16$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_Jbern16$jbern16.github.io$Jbern16$backgroundStyle(model.backgroundColor),
+				_elm_lang$html$Html_Events$onClick(_Jbern16$jbern16.github.io$Jbern16$NextClick)
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(
+						_elm_lang$html$Html$div,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$class('small-8 small-centered columns'),
+								_Jbern16$jbern16.github.io$Jbern16$textContainer
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								A2(
+								_elm_lang$html$Html$div,
+								_elm_lang$core$Native_List.fromArray(
+									[_Jbern16$jbern16.github.io$Jbern16$border]),
+								_elm_lang$core$Native_List.fromArray(
+									[
+										A2(
+										_elm_lang$html$Html$h1,
+										_elm_lang$core$Native_List.fromArray(
+											[_Jbern16$jbern16.github.io$Jbern16$headlineStyle]),
+										_elm_lang$core$Native_List.fromArray(
+											[
+												_elm_lang$html$Html$text(model.headline)
+											])),
+										_Jbern16$jbern16.github.io$Jbern16$findSep(model.headline),
+										A2(
+										_elm_lang$html$Html$div,
+										_elm_lang$core$Native_List.fromArray(
+											[
+												_elm_lang$html$Html_Attributes$style(
+												_elm_lang$core$Native_List.fromArray(
+													[
+														{ctor: '_Tuple2', _0: 'font-family', _1: 'Droid Sans Mono'}
+													]))
+											]),
+										_elm_lang$core$Native_List.fromArray(
+											[
+												_Jbern16$jbern16.github.io$Jbern16$findContent(model),
+												A2(
+												_elm_lang$html$Html$p,
+												_elm_lang$core$Native_List.fromArray(
+													[
+														_elm_lang$html$Html_Attributes$style(
+														_elm_lang$core$Native_List.fromArray(
+															[
+																{ctor: '_Tuple2', _0: 'font-size', _1: '18px'}
+															]))
+													]),
+												_elm_lang$core$Native_List.fromArray(
+													[
+														_elm_lang$html$Html$text(model.flavorText)
+													])),
+												_Jbern16$jbern16.github.io$Jbern16$findInfo(model)
+											]))
+									]))
+							]))
+					])),
+				A2(
+				_elm_lang$html$Html$span,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_Jbern16$jbern16.github.io$Jbern16$corner(model)
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[])),
+				_Jbern16$jbern16.github.io$Jbern16$footer$
+			]));
+};
+var _Jbern16$jbern16.github.io$Jbern16$main = {
+	main: _elm_lang$html$Html_App$beginnerProgram(
+		{model: _Jbern16$jbern16.github.io$Jbern16$init, update: _Jbern16$jbern16.github.io$Jbern16$update, view: _Jbern16$jbern16.github.io$Jbern16$view})
+};

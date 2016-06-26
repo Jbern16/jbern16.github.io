@@ -1,10 +1,10 @@
-module Jbern16 where
+module Jbern16 exposing (..)
 
 import Html exposing (..)
 import Html.Events exposing (onClick)
 import Html.Attributes exposing (..)
 import Array exposing (fromList, get, Array )
-import StartApp.Simple as StartApp
+import Html.App as Html
 import Maybe exposing (withDefault)
 import String exposing (split)
 
@@ -16,6 +16,7 @@ type alias Model =
   , flavorText : String
   , backgroundColor : String
   , nextID : Int
+  , moreInfo : String
   }
 
 init : Model
@@ -24,6 +25,7 @@ init =
   , content = "New York Based Web Developer"
   , flavorText = "Click through and learn more"
   , backgroundColor = "#3772FF"
+  , moreInfo = ""
   , nextID = 1
   }
 
@@ -41,6 +43,10 @@ flavorTexts : Array String
 flavorTexts =
   fromList [ "Click through and learn more", "I'm currently enjoying Rails, Ruby, Elm, and Javascript", "" ]
 
+moreInfos : Array String
+moreInfos = 
+  fromList [ "", "http://jbernesser.me/jb_resume.pdf", ""]
+
 backgroundColors : Array String
 backgroundColors =
   fromList [ "#3772FF", "#1B2021", "#31AFD4" ]
@@ -52,32 +58,31 @@ changeID model =
   else
     model.nextID + 1
 
-type Action
-  = NoOp
-  | NextClick
+type Msg
+  = NextClick
 
-update : Action -> Model -> Model
-update action model =
-  case action of
-    NoOp ->
-      model
+update : Msg -> Model -> Model
+update msg model =
+  case msg of
     NextClick->
       let
         headline = withDefault "" ( get (model.nextID) headlines )
         content = withDefault "" ( get (model.nextID) contents )
         flavorText = withDefault "" ( get (model.nextID) flavorTexts )
         backgroundColor = withDefault "" ( get (model.nextID ) backgroundColors )
+        moreInfo = withDefault "" ( get (model.nextID ) moreInfos )
       in
         { model | headline = headline
                 , content = content
                 , flavorText = flavorText
                 , backgroundColor = backgroundColor
+                , moreInfo = moreInfo
                 , nextID = (changeID model) }
 
 --VIEW
 
 
-backgroundStyle : String -> Html.Attribute
+backgroundStyle : String -> Attribute a
 backgroundStyle hex  =
   style [ ( "backgroundColor", hex)
         , ( "min-height", "100vh")
@@ -86,7 +91,7 @@ backgroundStyle hex  =
         , ( "cursor", "e-resize")
         ]
 
-textContainer : Html.Attribute
+textContainer : Attribute a
 textContainer =
   style [ ( "paddingTop", "13%")
         , ( "paddingBottom", "20%")
@@ -94,7 +99,8 @@ textContainer =
         , ( "color", "#E9F1F7")
         ]
 
-border =
+border : Attribute a
+border = 
   style [ ( "border-style", "solid")
         , ( "border-width", "6px")
         , ( "border-color", "#E9F1F7")
@@ -104,17 +110,17 @@ border =
         ]
 
 
-iconStyle : Html.Attribute
+iconStyle : Attribute a
 iconStyle =
   style [ ( "padding", "10px")
         , ( "color", "white" )
         ]
 
-sepStyle : Html.Attribute
+sepStyle : Attribute a
 sepStyle =
   style [ ( "font-size", "32px" ) ]
 
-headlineStyle : Html.Attribute
+headlineStyle : Attribute a
 headlineStyle =
   style [ ( "font-size", "48px")
         , ("font-family", "Montserrat, sans-serif")
@@ -124,11 +130,11 @@ getLink : Array String -> Int -> String
 getLink content index =
   withDefault "" ( get index content )
 
-findContent : Model -> Html
+findContent : Model -> Html b
 findContent model =
   if model.headline == "Let's Chat" then
     let
-      links = fromList ( split " "  model.content )
+      links    = fromList ( split " "  model.content )
       email    = getLink links 0
       twitter  = getLink links 1
       linkedIn = getLink links 2
@@ -160,8 +166,21 @@ findContent model =
   else
     div  [ style [ ("font-size", "24px") ] ] [ text model.content ]
 
+findInfo : Model -> Html b
+findInfo model =
+  let 
+    moreInfoStyle = 
+        style [ ( "font-size", "18px")
+        , ("color", "white")
+        ]
+  in 
+    if model.headline == "Check Out My Work" then
+        div  [ ]
+          [ a [ moreInfoStyle, href model.moreInfo ] [ text "My Resume"  ] ]
+    else 
+      div [ ] [ text "" ]
 
-findSep : String -> Html
+findSep : String -> Html a
 findSep headline =
   if headline == "Let's Chat" then
     span [ sepStyle ] [ text " ° " ]
@@ -170,7 +189,8 @@ findSep headline =
   else
     span [ sepStyle ] [ text " ° ° ° " ]
 
-footer =
+footer' : Html a
+footer' =
   let
     style' = style [ ( "position" , "fixed")
                    , ( "text-align", "center")
@@ -192,7 +212,7 @@ footer =
       a [ linkStyle, href source ] [ text "Made with Elm. Check it out!" ]
     ]
 
-
+corner : Model -> Attribute a
 corner model =
   let
     next = (changeID model) - 1
@@ -208,29 +228,31 @@ corner model =
           , ( "top", "0%")
           ]
 
-view : Signal.Address Action -> Model -> Html
-view address model =
-  div [ backgroundStyle model.backgroundColor, onClick address NextClick ] [
+view : Model -> Html Msg
+view model =
+  div [ backgroundStyle model.backgroundColor, onClick NextClick ] [
     div [ ] [
       div [ class "small-8 small-centered columns", textContainer ] [
         div [ border ] [
           h1 [ headlineStyle ] [ text model.headline ]
           , findSep model.headline
           , div [ style [ ("font-family", "Droid Sans Mono" ) ] ] [
-            findContent model
+            findInfo model
           , br [ ] [ ]
-          , p  [ style [ ("font-size", "18px") ] ] [ text model.flavorText ]
+          , findContent model
+          , br [ ] [ ]
+          , p [ style [ ("font-size", "18px") ] ] [ text model.flavorText ]
           ]
         ]
       ]
     ]
   , span [ corner model ] [ ]
-  , footer
+  , footer'
   ]
 
-main : Signal Html
+
 main =
-  StartApp.start
+  Html.beginnerProgram
     { model = init,
       update = update,
       view = view
