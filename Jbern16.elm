@@ -45,7 +45,7 @@ flavorTexts =
 
 moreInfos : Array String
 moreInfos = 
-  fromList [ "", "http://jbernesser.me/jb_resume.pdf", ""]
+  fromList [ "", "http://jbernesser.me/jb_resume.pdf", "https://www.turing.io/alumni/jonathan-bernesser"]
 
 backgroundColors : Array String
 backgroundColors =
@@ -177,8 +177,11 @@ findInfo model =
     if model.headline == "Check Out My Work" then
         div  [ ]
           [ a [ moreInfoStyle, href model.moreInfo ] [ text "My Resume"  ] ]
+    else if model.headline == "Let's Chat" then
+        div  [ ]
+          [ a [ moreInfoStyle, href model.moreInfo ] [ text "Learn More Here"  ] ]
     else 
-      div [ ] [ text "" ]
+        div [ ] [ text "" ]
 
 findSep : String -> Html a
 findSep headline =

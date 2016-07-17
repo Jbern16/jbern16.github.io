@@ -62,6 +62,23 @@ var _user$project$Jbern16$findInfo = function (model) {
 					[
 						_elm_lang$html$Html$text('My Resume')
 					]))
+			])) : (_elm_lang$core$Native_Utils.eq(model.headline, 'Let\'s Chat') ? A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				_elm_lang$html$Html$a,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						moreInfoStyle,
+						_elm_lang$html$Html_Attributes$href(model.moreInfo)
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text('Learn More Here')
+					]))
 			])) : A2(
 		_elm_lang$html$Html$div,
 		_elm_lang$core$Native_List.fromArray(
@@ -69,7 +86,7 @@ var _user$project$Jbern16$findInfo = function (model) {
 		_elm_lang$core$Native_List.fromArray(
 			[
 				_elm_lang$html$Html$text('')
-			]));
+			])));
 };
 var _user$project$Jbern16$getLink = F2(
 	function (content, index) {
@@ -336,7 +353,7 @@ var _user$project$Jbern16$corner = function (model) {
 };
 var _user$project$Jbern16$moreInfos = _elm_lang$core$Array$fromList(
 	_elm_lang$core$Native_List.fromArray(
-		['', 'http://jbernesser.me/jb_resume.pdf', '']));
+		['', 'http://jbernesser.me/jb_resume.pdf', 'https://www.turing.io/alumni/jonathan-bernesser']));
 var _user$project$Jbern16$flavorTexts = _elm_lang$core$Array$fromList(
 	_elm_lang$core$Native_List.fromArray(
 		['Click through and learn more', 'I\'m currently enjoying Rails, Ruby, Elm, and Javascript', '']));
