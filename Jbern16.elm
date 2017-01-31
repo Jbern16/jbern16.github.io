@@ -175,8 +175,8 @@ findInfo model =
         ]
   in 
     if model.headline == "Check Out My Work" then
-        div  [ ]
-          [ a [ moreInfoStyle, href model.moreInfo ] [ text "My Resume"  ] ]
+        div  [ ] [ ]
+          -- [ a [ moreInfoStyle, href model.moreInfo ] [ text "My Resume"  ] ]
     else if model.headline == "Let's Chat" then
         div  [ ]
           [ a [ moreInfoStyle, href model.moreInfo ] [ text "Learn More Here"  ] ]

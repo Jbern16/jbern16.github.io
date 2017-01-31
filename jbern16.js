@@ -7271,19 +7271,7 @@ var _user$project$Jbern16$findInfo = function (model) {
 		_elm_lang$core$Native_List.fromArray(
 			[]),
 		_elm_lang$core$Native_List.fromArray(
-			[
-				A2(
-				_elm_lang$html$Html$a,
-				_elm_lang$core$Native_List.fromArray(
-					[
-						moreInfoStyle,
-						_elm_lang$html$Html_Attributes$href(model.moreInfo)
-					]),
-				_elm_lang$core$Native_List.fromArray(
-					[
-						_elm_lang$html$Html$text('My Resume')
-					]))
-			])) : (_elm_lang$core$Native_Utils.eq(model.headline, 'Let\'s Chat') ? A2(
+			[])) : (_elm_lang$core$Native_Utils.eq(model.headline, 'Let\'s Chat') ? A2(
 		_elm_lang$html$Html$div,
 		_elm_lang$core$Native_List.fromArray(
 			[]),
