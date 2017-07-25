@@ -7562,7 +7562,7 @@ var _user$project$Jbern16$corner = function (model) {
 };
 var _user$project$Jbern16$moreInfos = _elm_lang$core$Array$fromList(
 	_elm_lang$core$Native_List.fromArray(
-		['', 'http://jbernesser.me/jb_resume.pdf', 'https://www.turing.io/alumni/jonathan-bernesser']));
+		['', 'http://jbernesser.info/jb_resume.pdf', 'http://jbernesser.info/jb_resume.pdf']));
 var _user$project$Jbern16$flavorTexts = _elm_lang$core$Array$fromList(
 	_elm_lang$core$Native_List.fromArray(
 		['Click through and learn more', 'I\'m currently enjoying Rails, Ruby, Elm, and Javascript', '']));

@@ -45,7 +45,7 @@ flavorTexts =
 
 moreInfos : Array String
 moreInfos = 
-  fromList [ "", "http://jbernesser.me/jb_resume.pdf", "https://www.turing.io/alumni/jonathan-bernesser"]
+  fromList [ "", "http://jbernesser.info/jb_resume.pdf", "http://jbernesser.info/jb_resume.pdf"]
 
 backgroundColors : Array String
 backgroundColors =
